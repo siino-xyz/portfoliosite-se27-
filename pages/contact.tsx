@@ -1,12 +1,19 @@
 import Button from "components/button";
 import { GetForm } from "util/getForm";
+import { sprinkles, container } from "styles";
+
+const inputWrapper = sprinkles({
+  display: "flex",
+  flexDirection: "column",
+  marginY: "size-8",
+});
 
 const ContactPage = () => {
   const { register, handleSubmit, onSubmit, watch, errors } = GetForm();
   return (
-    <div>
+    <div className={container}>
       <form onSubmit={handleSubmit(onSubmit)}>
-        <div>
+        <div className={inputWrapper}>
           <label htmlFor="name">お名前*</label>
           <input
             autoComplete="name"
@@ -23,7 +30,7 @@ const ContactPage = () => {
           />
           {errors.name && <p>{errors.name?.message}</p>}
         </div>
-        <div>
+        <div className={inputWrapper}>
           <label htmlFor="email">メールアドレス*</label>
           <input
             autoComplete="email"
@@ -40,7 +47,7 @@ const ContactPage = () => {
           />
           {errors.email && <p>{errors.email?.message}</p>}
         </div>
-        <div>
+        <div className={inputWrapper}>
           <label htmlFor="subject">お問い合わせ内容</label>
           <textarea
             {...register("subject", {
@@ -53,7 +60,9 @@ const ContactPage = () => {
             id="subject"
             name="subject"
           />
-          <p>{watch("subject")?.length || 0}/2000</p>
+          <p className={sprinkles({ fontSize: "sm", color: "gray1" })}>
+            {watch("subject")?.length || 0}/2000
+          </p>
           {errors.name && <p>{errors.name?.message}</p>}
         </div>
         <Button>送信する</Button>

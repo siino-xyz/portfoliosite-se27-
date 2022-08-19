@@ -1,40 +1,37 @@
 import React from "react";
-import { client } from "libs";
 import Link from "next/link";
 import dayjs from "dayjs";
 import Image from "next/image";
 import { imageCroped } from "styles";
+import { Posts } from "types";
+import { GetStaticProps, NextPage } from "next";
+import { getPosts } from "libs/blog";
 
-type BlogContents = {
-  id: string;
-  title: string;
-  body: string;
-  description: string;
-  category: string;
-  tag: string;
+type BlogProps = {
+  posts: Posts[];
 };
 
-const blogIndexPage = ({ blog }: { blog: any }) => {
+const blogIndexPage: NextPage<BlogProps> = ({ posts }) => {
   return (
     <div>
       <h1>ブログ一覧ページ</h1>
       <ul>
-        {blog.map((blog: any) => (
-          <li key={blog.id}>
+        {posts.map((post) => (
+          <li key={post.id}>
             <div className={imageCroped}>
               <Image
                 layout="fill"
                 objectFit="contain"
                 alt="eye_catch"
-                src={blog.eye_catch.url}
+                src={post.eye_catch.url}
               />
             </div>
-            <Link href={`/blog/${blog.id}`}>
-              <a>{blog.title}</a>
+            <Link href={`/blog/${post.id}`}>
+              <a>{post.title}</a>
             </Link>
-            <p>{blog.category.category_name}</p>
-            <p>{blog.tag.tag_name}</p>
-            <p>{dayjs(blog.createdAt).locale("ja").format("YYYY/MM/DD")}</p>
+            <p>{post.category?.category_name}</p>
+            <p>{post.tag?.tag_name}</p>
+            <p>{dayjs(post.createdAt).locale("ja").format("YYYY/MM/DD")}</p>
           </li>
         ))}
       </ul>
@@ -44,12 +41,11 @@ const blogIndexPage = ({ blog }: { blog: any }) => {
 
 export default blogIndexPage;
 
-export const getStaticProps = async () => {
-  const data = await client.get({ endpoint: "blog" });
-
+export const getStaticProps: GetStaticProps = async () => {
+  const { posts } = await getPosts();
   return {
     props: {
-      blog: data.contents,
+      posts,
     },
   };
 };

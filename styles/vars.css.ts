@@ -145,4 +145,9 @@ export const vars = createGlobalTheme(":root", {
   transition: {
     easing: "all 0.5s ease-out ",
   },
+  aspectRatio: {
+    "aspect-auto": "aspect-ratio: auto",
+    "aspect-square": "aspect-ratio: 1 / 1",
+    "aspect-video": "aspect-ratio:  16 / 9",
+  },
 });

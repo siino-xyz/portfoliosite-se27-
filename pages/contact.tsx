@@ -1,5 +1,5 @@
 import Button from "components/button";
-import { GetForm } from "util/getForm";
+import { GetForm } from "libs/getForm";
 import { sprinkles, container } from "styles";
 
 const inputWrapper = sprinkles({

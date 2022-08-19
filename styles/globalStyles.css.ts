@@ -8,3 +8,13 @@ export const container = style([
     marginX: "size-auto",
   }),
 ]);
+
+export const imageCroped = style([
+  sprinkles({
+    position: "relative",
+  }),
+  {
+    width: 300,
+    height: 169,
+  },
+]);

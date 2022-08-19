@@ -2,7 +2,7 @@ import { MicroCMSListContent, MicroCMSQueries } from "microcms-js-sdk";
 
 export type Queries = MicroCMSQueries;
 
-export interface Posts extends MicroCMSListContent {
+export interface Post extends MicroCMSListContent {
   title: string;
   body: string;
   description: string;

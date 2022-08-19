@@ -3,12 +3,12 @@ import Link from "next/link";
 import dayjs from "dayjs";
 import Image from "next/image";
 import { imageCroped } from "styles";
-import { Posts } from "types";
+import { Post } from "types";
 import { GetStaticProps, NextPage } from "next";
-import { getPosts } from "libs/blog";
+import { getContents } from "libs/blog";
 
 type BlogProps = {
-  posts: Posts[];
+  posts: Post[];
 };
 
 const blogIndexPage: NextPage<BlogProps> = ({ posts }) => {
@@ -26,7 +26,7 @@ const blogIndexPage: NextPage<BlogProps> = ({ posts }) => {
                 src={post.eye_catch.url}
               />
             </div>
-            <Link href={`/blog/${post.id}`}>
+            <Link href={`/blog/posts/${post.id}`}>
               <a>{post.title}</a>
             </Link>
             <p>{post.category?.category_name}</p>
@@ -42,7 +42,7 @@ const blogIndexPage: NextPage<BlogProps> = ({ posts }) => {
 export default blogIndexPage;
 
 export const getStaticProps: GetStaticProps = async () => {
-  const { posts } = await getPosts();
+  const { posts } = await getContents();
   return {
     props: {
       posts,

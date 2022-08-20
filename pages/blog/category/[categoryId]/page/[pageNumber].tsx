@@ -1,18 +1,6 @@
 import Pagination from "components/pagination/pagination";
-import {
-  getCategories,
-  getCategoriesByFilter,
-  getContents,
-  getPosts,
-  limit,
-} from "libs/blog";
-import {
-  GetStaticPaths,
-  GetStaticPathsContext,
-  GetStaticProps,
-  GetStaticPropsContext,
-  NextPage,
-} from "next";
+import { getCategories, getContents, getPosts, limit } from "libs/blog";
+import { GetStaticPaths, GetStaticProps, NextPage } from "next";
 import React from "react";
 import { MicroCMS_Category, Post } from "types";
 
@@ -20,6 +8,7 @@ type CategoryPageProps = {
   posts: Post[];
   pager: [];
   selectedCategory: MicroCMS_Category;
+  category: MicroCMS_Category[];
   currentPage: number;
 };
 
@@ -28,9 +17,17 @@ const CategoryPage: NextPage<CategoryPageProps> = ({
   pager,
   selectedCategory,
   currentPage,
+  category,
 }) => {
   return (
     <div>
+      <ul>
+        {category.map((category) => (
+          <li key={category.id}>
+            <p>{category.category_name}</p>
+          </li>
+        ))}
+      </ul>
       <ul>
         {posts.map((post) => (
           <li key={post.id}>

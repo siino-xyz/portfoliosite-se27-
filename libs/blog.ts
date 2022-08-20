@@ -76,10 +76,10 @@ export const getCategories = async (queries?: Queries) => {
   return res;
 };
 
-export const getTags = async () => {
+export const getTags = async (queries?: Queries) => {
   const res = await client.getList<MicroCMS_Tag>({
     endpoint: "tags",
-    queries: { limit: 1000 },
+    queries,
   });
   return res;
 };

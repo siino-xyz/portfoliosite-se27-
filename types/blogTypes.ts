@@ -1,4 +1,8 @@
-import { MicroCMSListContent, MicroCMSQueries } from "microcms-js-sdk";
+import {
+  MicroCMSListContent,
+  MicroCMSListResponse,
+  MicroCMSQueries,
+} from "microcms-js-sdk";
 
 export type Queries = MicroCMSQueries;
 
@@ -11,13 +15,13 @@ export interface Post extends MicroCMSListContent {
   eye_catch: MicroCMS_EyeCatch;
   ogp_image?: MicroCMS_OGPImage;
   category?: MicroCMS_Category;
-  tag?: MicroCMS_Tag;
+  tags?: MicroCMS_Tag;
 }
 
-export type MicroCMS_Category = {
+export interface MicroCMS_Category extends MicroCMSListContent {
   id: string;
   category_name: string;
-};
+}
 
 export type MicroCMS_Tag = {
   id: string;
@@ -35,3 +39,5 @@ export type MicroCMS_OGPImage = {
   width?: number | null;
   title?: string | null;
 };
+
+export type MicroCMSResponse<T> = MicroCMSListResponse<T>;

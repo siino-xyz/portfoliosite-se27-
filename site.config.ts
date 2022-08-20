@@ -11,7 +11,7 @@ export const siteConfig: SiteConfigTypes = {
       : "http://localhost:3000",
   apiKey: process.env.MICROCMS_API_KEY as string,
   serviceDomain: process.env.MICROCMS_SERVICE_DOMAIN as string,
-  defaultLimit: "20",
+  defaultLimit: "2",
   defaultMaxLimit: "50",
   defaultMinLimit: "4",
 };

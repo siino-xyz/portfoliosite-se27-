@@ -4,7 +4,7 @@ import dayjs from "dayjs";
 import Image from "next/image";
 import { imageCroped } from "styles";
 import { Post } from "types";
-import { GetStaticProps, NextPage } from "next";
+import { GetStaticPathsContext, GetStaticProps, NextPage } from "next";
 import { getContents } from "libs/blog";
 
 type BlogProps = {
@@ -30,7 +30,7 @@ const blogIndexPage: NextPage<BlogProps> = ({ posts }) => {
               <a>{post.title}</a>
             </Link>
             <p>{post.category?.category_name}</p>
-            <p>{post.tag?.tag_name}</p>
+            <p>{post.tags?.tag_name}</p>
             <p>{dayjs(post.createdAt).locale("ja").format("YYYY/MM/DD")}</p>
           </li>
         ))}
@@ -41,7 +41,10 @@ const blogIndexPage: NextPage<BlogProps> = ({ posts }) => {
 
 export default blogIndexPage;
 
-export const getStaticProps: GetStaticProps = async () => {
+export const getStaticProps: GetStaticProps = async (
+  context: GetStaticPathsContext
+) => {
+  // const page: any = context.params
   const { posts } = await getContents();
   return {
     props: {

@@ -7,6 +7,9 @@ export const container = style([
     paddingY: "size-2",
     marginX: "size-auto",
   }),
+  {
+    maxWidth: 1920,
+  },
 ]);
 
 export const imageCroped = style([

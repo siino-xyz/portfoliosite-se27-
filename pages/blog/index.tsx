@@ -4,8 +4,13 @@ import dayjs from "dayjs";
 import Image from "next/image";
 import { imageCroped } from "styles";
 import { Post } from "types";
-import { GetStaticPathsContext, GetStaticProps, NextPage } from "next";
-import { getContents } from "libs/blog";
+import {
+  GetStaticPaths,
+  GetStaticPathsContext,
+  GetStaticProps,
+  NextPage,
+} from "next";
+import { getContents, getPosts } from "libs/blog";
 
 type BlogProps = {
   posts: Post[];

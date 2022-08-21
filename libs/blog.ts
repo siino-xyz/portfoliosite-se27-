@@ -50,6 +50,15 @@ export const getPosts = async (queries?: Queries) => {
   return res;
 };
 
+export const getPostsById = async (postid: string) => {
+  const res = await client.getListDetail<Post>({
+    endpoint: "blog",
+    contentId: postid,
+    queries: { depth: 2 },
+  });
+  return res;
+};
+
 export const getCategoriesByFilter = async (
   limit: number,
   currentPage: number,

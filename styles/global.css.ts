@@ -1,4 +1,5 @@
 import { globalStyle } from "@vanilla-extract/css";
+import { darkMode } from "./sprinkles.css";
 import { vars } from "./themes.css";
 
 globalStyle("html, body", {
@@ -6,7 +7,13 @@ globalStyle("html, body", {
   padding: 0,
 });
 
-// globalStyle("html", {
-//   background: vars.palette.pink300,
-//   color: vars.palette.green50,
-// });
+globalStyle(`.${darkMode}`, {
+  background: vars.palette.black,
+  color: vars.palette.gray50,
+  colorScheme: "dark",
+});
+
+globalStyle("html", {
+  background: vars.palette.white,
+  color: vars.palette.gray50,
+});

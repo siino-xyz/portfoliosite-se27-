@@ -5,7 +5,7 @@ import { useState } from "react";
 import { Box } from "components/box/Box";
 import { sprinkles } from "styles";
 
-const SPMenuButton = ({
+const Hamburger = ({
   open,
   onClick,
 }: {
@@ -14,11 +14,11 @@ const SPMenuButton = ({
 }) => {
   return (
     <button
-      className={classNames(styles.spmenuButton, open ? styles.isOpen : null)}
+      className={classNames(styles.hamburger, open ? styles.isOpen : null)}
       onClick={onClick}
     >
       <Box
-        className={styles.fab}
+        className={styles.hamBox}
         background={{ lightMode: "black", darkMode: "white" }}
       />
     </button>
@@ -74,7 +74,7 @@ const Header = () => {
       padding={"medium"}
       className={styles.header}
     >
-      <SPMenuButton open={menuOpen} onClick={toggleMenu} />
+      <Hamburger open={menuOpen} onClick={toggleMenu} />
       <GlobalMenuContent open={menuOpen} />
     </Box>
   );

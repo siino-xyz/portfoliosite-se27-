@@ -1,7 +1,6 @@
 import { style, createVar, fallbackVar } from "@vanilla-extract/css";
 import { vars } from "styles/themes.css";
 import { sprinkles } from "styles";
-import { breakpoints } from "themeUtils";
 
 const headerHeight = "90px";
 
@@ -27,28 +26,28 @@ export const header = style([
 
 export const globalMenuContent = style([
   {
-    background: vars.palette.gray300,
     top: 0,
     right: 0,
   },
   sprinkles({
+    background: { lightMode: "black", darkMode: "white" },
     position: { mobile: "absolute", desktop: "relative" },
     display: { mobile: "none", desktop: "block" },
     height: { mobile: "fullVh", desktop: "inher" },
   }),
 ]);
 
-export const spmenuButton = style([
+export const hamburger = style([
   {
-    backgroundColor: "blue",
     zIndex: 9999,
   },
   sprinkles({
+    background: { lightMode: "black", darkMode: "white" },
     display: { mobile: "block", desktop: "none" },
   }),
 ]);
 
-export const fab = style({
+export const hamBox = style({
   width: fabSize,
   height: fabSize,
 });

@@ -1,6 +1,7 @@
 import { useForm } from "react-hook-form";
 import { FormInputs } from "types";
 
+
 export const GetForm = () => {
   const {
     register,

@@ -69,10 +69,8 @@ export const getAllCategoryPagePaths = async () => {
       )
     )
   );
-
   return paths.flat();
 };
-
 export const getStaticPaths: GetStaticPaths = async () => {
   const paths = await getAllCategoryPagePaths();
   return {

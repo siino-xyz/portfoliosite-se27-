@@ -6,13 +6,19 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "format": "rome format ."
   },
   "dependencies": {
+    "@capsizecss/metrics": "^0.3.0",
+    "@capsizecss/vanilla-extract": "^1.0.0",
     "@vanilla-extract/css": "^1.7.2",
+    "@vanilla-extract/dynamic": "^2.0.2",
     "@vanilla-extract/next-plugin": "^2.0.2",
     "@vanilla-extract/recipes": "^0.2.5",
     "@vanilla-extract/sprinkles": "^1.4.1",
+    "classnames": "^2.3.1",
+    "csstype": "^3.1.0",
     "dayjs": "^1.11.5",
     "microcms-js-sdk": "^2.2.1",
     "next": "12.2.5",
@@ -24,8 +30,12 @@
     "@types/node": "18.7.6",
     "@types/react": "18.0.17",
     "@types/react-dom": "18.0.6",
+    "@vanilla-extract/css-utils": "^0.1.2",
     "eslint": "8.22.0",
     "eslint-config-next": "12.2.5",
+    "eslint-config-prettier": "^8.5.0",
+    "prettier": "^2.7.1",
+    "tailwindcss": "^3.1.8",
     "typescript": "4.7.4"
   }
 }

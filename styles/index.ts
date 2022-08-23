@@ -1,3 +1,3 @@
 export * from "./sprinkles.css";
-export * from "./vars.css";
-export * from "./globalStyles.css";
+export * from "./reset.css";
+export * from "./themes.css";

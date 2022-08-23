@@ -1,77 +1,98 @@
-import { defineProperties, createSprinkles } from "@vanilla-extract/sprinkles";
-import { vars } from "./vars.css";
+import {
+  defineProperties,
+  createSprinkles,
+  createMapValueFn,
+  createNormalizeValueFn,
+  ConditionalValue,
+} from "@vanilla-extract/sprinkles";
+import { calc } from "@vanilla-extract/css-utils";
+import { breakpoints } from "themeUtils";
+import { vars } from "./themes.css";
 
-const responsiveStyles = defineProperties({
+const space = vars.spacing;
+export type Space = keyof typeof space;
+
+const negativeSpace = {
+  ["-xsmall"]: `${calc(space.xsmall).negate()}`,
+  ["-small"]: `${calc(space.small).negate()}`,
+  ["-medium"]: `${calc(space.medium).negate()}`,
+  ["-large"]: `${calc(space.large).negate()}`,
+  ["-xlarge"]: `${calc(space.xlarge).negate()}`,
+  ["-xxlarge"]: `${calc(space.xxlarge).negate()}`,
+  ["-xxxlarge"]: `${calc(space.xxxlarge).negate()}`,
+};
+
+const margins = {
+  ...space,
+  ...negativeSpace,
+};
+
+const responsiveProperties = defineProperties({
   conditions: {
     mobile: {},
-    tablet: { "@media": "screen and (min-width: 768px)" },
-    desktop: { "@media": "screen and (min-width: 1024px)" },
+    tablet: { "@media": `screen and (min-width: ${breakpoints.tablet}px)` },
+    desktop: { "@media": `screen and (min-width: ${breakpoints.desktop}px)` },
   },
   defaultCondition: "mobile",
   responsiveArray: ["mobile", "tablet", "desktop"],
-
   properties: {
-    display: ["none", "flex", "block", "inline", "inline-block", "grid"],
-    flexDirection: ["row", "column", "row-reverse", "column-reverse"],
-    justifyContent: [
-      "stretch",
-      "flex-start",
-      "center",
-      "flex-end",
-      "space-around",
-      "space-between",
-      "right",
-      "left",
-    ],
-    gridTemplateColumns: vars.gridCols,
-    gap: vars.sizes,
-    paddingTop: vars.sizes,
-    paddingBottom: vars.sizes,
-    paddingLeft: vars.sizes,
-    paddingRight: vars.sizes,
-    marginTop: vars.sizes,
-    marginRight: vars.sizes,
-    marginLeft: vars.sizes,
-    marginBottom: vars.sizes,
-    fontFamily: vars.fontFamily,
-    fontSize: vars.fontSize,
-    width: vars.sizes,
-    maxWidth: vars.sizes,
-    minWidth: vars.sizes,
-    height: vars.sizes,
-    maxHeight: vars.sizes,
-    minHeight: vars.sizes,
-    textAlign: ["center", "left", "right"],
-    alignItems: ["stretch", "flex-start", "center", "flex-end"],
-    listStyleType: ["none", "circle", "inherit"],
-    cursor: ["pointer", "none"],
-    position: ["absolute", "relative", "inherit", "fixed", "sticky"],
-    lineHeight: vars.lineHeight,
-    fontWeight: vars.fontWeight,
-    borderColor: vars.color,
-    transition: vars.transition,
-    aspectRatio: vars.aspectRatio,
+    position: ["absolute", "relative", "fixed"],
+    display: ["none", "block", "inline", "inline-block", "flex"],
+    alignItems: ["flex-start", "center", "flex-end"],
+    justifyContent: ["flex-start", "center", "flex-end", "space-between"],
+    flexDirection: ["row", "row-reverse", "column", "column-reverse"],
+    paddingTop: space,
+    paddingBottom: space,
+    paddingLeft: space,
+    paddingRight: space,
+    marginTop: margins,
+    marginBottom: margins,
+    marginLeft: margins,
+    marginRight: margins,
+    pointerEvents: ["none", "auto"],
+    overflow: ["hidden"],
+    opacity: [0, 1],
+    textAlign: ["left", "center", "right"],
+    minWidth: [0],
+    maxWidth: vars.contentWidth,
+    height: vars.contentHeight,
+    listStyleType: ["none"],
+    gap: space,
+    transition: {
+      slow: "transform .3s ease, opacity .3s ease",
+      fast: "transform .15s ease, opacity .15s ease",
+    },
   },
   shorthands: {
     padding: ["paddingTop", "paddingBottom", "paddingLeft", "paddingRight"],
     paddingX: ["paddingLeft", "paddingRight"],
     paddingY: ["paddingTop", "paddingBottom"],
-    placeItems: ["justifyContent", "alignItems"],
-    margin: ["marginLeft", "marginRight", "marginTop", "marginBottom"],
+    margin: ["marginTop", "marginBottom", "marginLeft", "marginRight"],
     marginX: ["marginLeft", "marginRight"],
     marginY: ["marginTop", "marginBottom"],
   },
 });
 
-const colorStyles = defineProperties({
+export const mapResponsiveValue = createMapValueFn(responsiveProperties);
+export const normalizeResponsiveValue =
+  createNormalizeValueFn(responsiveProperties);
+
+export type ResponsiveValue<Value extends string | number> = ConditionalValue<
+  typeof responsiveProperties,
+  Value
+>;
+export const lightMode = "light";
+export const darkMode = "dark";
+
+const colorProperties = defineProperties({
   conditions: {
     lightMode: {},
-    darkMode: {},
+    darkMode: { selector: `.${darkMode} &` },
   },
-  defaultCondition: "darkMode",
+  defaultCondition: "lightMode",
   properties: {
-    color: vars.color,
-    background: vars.color,
+    background: vars.palette,
+    color: vars.palette,
   },
 });
 
@@ -85,15 +106,19 @@ const unresponsiveProperties = defineProperties({
     flexShrink: [0],
     flexGrow: [0, 1],
     zIndex: [-1, 0, 1],
+    width: { full: "100%" },
+    borderRadius: vars.border.radius,
     cursor: ["pointer"],
-    borderRadius: vars.sizes,
-    textDecoration: vars.textDecoration,
+  },
+  shorthands: {
+    inset: ["top", "bottom", "left", "right"],
   },
 });
 
 export const sprinkles = createSprinkles(
-  responsiveStyles,
-  colorStyles,
-  unresponsiveProperties
+  responsiveProperties,
+  unresponsiveProperties,
+  colorProperties
 );
+
 export type Sprinkles = Parameters<typeof sprinkles>[0];

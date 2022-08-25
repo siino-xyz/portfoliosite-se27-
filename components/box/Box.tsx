@@ -13,6 +13,7 @@ export interface BoxProps
       | "color"
       | "width"
       | "cursor"
+      | "fontWeight"
     >,
     Sprinkles {
   component?: ElementType;
@@ -62,6 +63,7 @@ export const Box = ({
   minWidth,
   transition,
   overflow,
+  fontWeight,
   ...restProps
 }: BoxProps) => {
   const atomClasses = classNames(
@@ -108,6 +110,7 @@ export const Box = ({
       minWidth,
       transition,
       overflow,
+      fontWeight,
     }),
     className
   );

@@ -26,6 +26,7 @@ export const vars = createGlobalTheme(":root", {
     heading:
       'MuseoModerno, Zen Kaku Gothic Antique, "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif',
     body: 'Zen kaku Gothic Antique, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"',
+    code: 'Source Code Pro,-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"',
   },
   grid: px(grid),
   spacing: {

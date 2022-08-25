@@ -1,9 +1,12 @@
 import Link from "next/link";
 import classNames from "classnames";
 import * as styles from "./header.css";
+import * as bStyles from "styles/borderUtils.css";
 import { useState } from "react";
 import { Box } from "components/box/Box";
 import { sprinkles } from "styles";
+import { ColorModeToggle } from "components/colorModeToggle/ColorModeToggle";
+import Logo from "components/logo/logo";
 
 const Hamburger = ({
   open,
@@ -69,13 +72,24 @@ const Header = () => {
   return (
     <Box
       position={"relative"}
-      display={{ mobile: "block", desktop: "flex" }}
-      flexDirection={"row-reverse"}
-      padding={"medium"}
-      className={styles.header}
+      display={{ mobile: "flex", desktop: "flex" }}
+      flexDirection={{ mobile: "row", desktop: "row-reverse" }}
+      justifyContent={"space-between"}
+      alignItems={"center"}
+      paddingX={"large"}
+      width={"full"}
+      className={classNames(
+        styles.header,
+        bStyles.borderBottom,
+        bStyles.borderUtil
+      )}
     >
       <Hamburger open={menuOpen} onClick={toggleMenu} />
-      <GlobalMenuContent open={menuOpen} />
+      <Box display={{ mobile: "block", desktop: "flex" }} alignItems={"center"}>
+        <GlobalMenuContent open={menuOpen} />
+        <ColorModeToggle />
+      </Box>
+      <Logo />
     </Box>
   );
 };

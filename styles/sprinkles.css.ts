@@ -62,6 +62,9 @@ const responsiveProperties = defineProperties({
       slow: "transform .3s ease, opacity .3s ease",
       fast: "transform .15s ease, opacity .15s ease",
     },
+    fontFamily: vars.fonts,
+    fontWeight: vars.weight,
+    fontSize: vars.fontSize,
   },
   shorthands: {
     padding: ["paddingTop", "paddingBottom", "paddingLeft", "paddingRight"],
@@ -93,6 +96,7 @@ const colorProperties = defineProperties({
   properties: {
     background: vars.palette,
     color: vars.palette,
+    borderColor: vars.palette,
   },
 });
 
@@ -108,6 +112,8 @@ const unresponsiveProperties = defineProperties({
     zIndex: [-1, 0, 1],
     width: { full: "100%" },
     borderRadius: vars.border.radius,
+    borderStyle: ["solid", "dashed", "none"],
+    borderWidth: vars.spacing,
     cursor: ["pointer"],
   },
   shorthands: {

@@ -1,11 +1,11 @@
-import { style, createVar, fallbackVar } from "@vanilla-extract/css";
-import { vars } from "styles/themes.css";
+import { style } from "@vanilla-extract/css";
 import { sprinkles } from "styles";
 
-const headerHeight = "90px";
+const headerHeight = "70px";
 
 const fabSize = 44;
 export const isOpen = style({});
+
 export const menuIsShow = style([
   {
     display: "block !important",
@@ -18,9 +18,6 @@ export const header = style([
     height: headerHeight,
     opacity: "0.85",
     backdropFilter: "blur(3px)",
-    "@media": {
-      "screen and (min-width: 768px)": {},
-    },
   },
 ]);
 

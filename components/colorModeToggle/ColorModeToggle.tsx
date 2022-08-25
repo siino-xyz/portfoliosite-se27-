@@ -63,8 +63,6 @@ export const ColorModeToggle = () => {
       title="Toggle colour mode"
       className={style.root}
       onClick={() => setColorMode(colorMode === "light" ? "dark" : "light")}
-    >
-      ChangeColor
-    </Box>
+    />
   );
 };

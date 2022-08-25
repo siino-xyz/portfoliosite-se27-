@@ -1,17 +1,19 @@
-import {
-  ColorModeProvider,
-  ColorModeToggle,
-} from "components/colorModeToggle/ColorModeToggle";
+import { ColorModeProvider } from "components/colorModeToggle/ColorModeToggle";
 import Header from "components/header/header";
+import Text from "components/typography/text/text";
 import type { NextPage } from "next";
 
 const Home: NextPage = () => {
   return (
-    <ColorModeProvider>
-      <ColorModeToggle />
-      <Header />
-      <main></main>
-    </ColorModeProvider>
+    <>
+      <ColorModeProvider>
+        <Header />
+        <main>
+          <Text>全角ゴシックアンティークです。adsf</Text>
+          <p>MuseoMuseo</p>
+        </main>
+      </ColorModeProvider>
+    </>
   );
 };
 

@@ -2,7 +2,7 @@ import React from "react";
 import Link from "next/link";
 import dayjs from "dayjs";
 import Image from "next/image";
-import { imageCroped } from "styles";
+// import { imageCroped } from "styles";
 import { Post } from "types";
 import {
   GetStaticPaths,
@@ -23,14 +23,13 @@ const blogIndexPage: NextPage<BlogProps> = ({ posts }) => {
       <ul>
         {posts.map((post) => (
           <li key={post.id}>
-            <div className={imageCroped}>
-              <Image
-                layout="fill"
-                objectFit="contain"
-                alt="eye_catch"
-                src={post.eye_catch.url}
-              />
-            </div>
+            <Image
+              layout="fill"
+              objectFit="contain"
+              alt="eye_catch"
+              src={post.eye_catch.url}
+            />
+
             <Link href={`/blog/posts/${post.id}`}>
               <a>{post.title}</a>
             </Link>

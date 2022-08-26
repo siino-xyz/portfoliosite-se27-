@@ -13,6 +13,7 @@ const colorMap = {
 interface TextStyleProps {
   color?: keyof typeof colorMap;
   align?: Sprinkles["textAlign"];
+  className?: string;
 }
 
 export interface TextProps extends TextStyleProps {
@@ -20,10 +21,15 @@ export interface TextProps extends TextStyleProps {
   children: ReactNode;
 }
 
-export const useTextStyles = ({ color = "neutral", align }: TextStyleProps) =>
+export const useTextStyles = ({
+  color = "neutral",
+  align,
+  className,
+}: TextStyleProps) =>
   classNames(
     sprinkles({
       color: colorMap[color],
       textAlign: align,
-    })
+    }),
+    className
   );

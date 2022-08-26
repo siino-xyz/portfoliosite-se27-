@@ -31,6 +31,7 @@ export const vars = createGlobalTheme(":root", {
   grid: px(grid),
   spacing: {
     none: "0",
+    auto: "auto",
     xsmall: px(1 * grid),
     small: px(2 * grid),
     medium: px(3 * grid),
@@ -59,6 +60,16 @@ export const vars = createGlobalTheme(":root", {
     xxlarge: px(12 * grid),
     xxxlarge: px(24 * grid),
   },
+  width: {
+    full: "100%",
+    "w-11/12": "91.666667%",
+    "w-4/5": "80%",
+    "w-3/4": "75%",
+    "w-3/5": "60%",
+    "w-1/2": "50%",
+    "w-1/4": "25%",
+    "w-screen": "100vw",
+  },
   fontSize: {
     xxsmall: "12px",
     xsmall: "14px",
@@ -71,6 +82,15 @@ export const vars = createGlobalTheme(":root", {
     xlarge: "38px",
     xxlarge: "46px",
     xxxlarge: "52px",
+  },
+  leading: {
+    xsmall: "1.25rem",
+    small: "1.5rem",
+    medium: "1.75rem",
+    large: "2rem",
+    xlarge: "3rem",
+    xxlarge: "4rem",
+    xxxlarge: "5rem",
   },
   weight: {
     regular: "400",

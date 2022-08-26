@@ -4,14 +4,18 @@ import { TextProps, useTextStyles } from "libs/typographyUtil";
 import { fa_xsmall } from "./typography.css";
 
 export const Xsmall = ({
-  component = "span",
+  component = "p",
   color,
   align,
   children,
+  className,
 }: TextProps) => (
   <Box
     component={component}
-    className={classNames(useTextStyles({ color, align }), fa_xsmall)}
+    className={classNames(
+      useTextStyles({ color, align, className }),
+      fa_xsmall
+    )}
   >
     {children}
   </Box>

@@ -4,7 +4,7 @@ import { TextProps, useTextStyles } from "libs/typographyUtil";
 import { fa_code } from "./typography.css";
 
 export const Code = ({
-  component = "span",
+  component = "code",
   color,
   align,
   children,

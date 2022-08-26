@@ -78,11 +78,7 @@ const Header = () => {
       alignItems={"center"}
       paddingX={"large"}
       width={"full"}
-      className={classNames(
-        styles.header,
-        bStyles.borderBottom,
-        bStyles.borderUtil
-      )}
+      className={classNames(styles.header, bStyles.borderBottom)}
     >
       <Hamburger open={menuOpen} onClick={toggleMenu} />
       <Box display={{ mobile: "block", desktop: "flex" }} alignItems={"center"}>

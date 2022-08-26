@@ -64,6 +64,7 @@ export const Box = ({
   transition,
   overflow,
   fontWeight,
+  gap,
   ...restProps
 }: BoxProps) => {
   const atomClasses = classNames(
@@ -111,6 +112,7 @@ export const Box = ({
       transition,
       overflow,
       fontWeight,
+      gap,
     }),
     className
   );

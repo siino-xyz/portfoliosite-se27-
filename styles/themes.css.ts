@@ -24,7 +24,7 @@ const tailwindPalette = {
 export const vars = createGlobalTheme(":root", {
   fonts: {
     heading:
-      'MuseoModerno, Zen Kaku Gothic Antique, "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif',
+      'JNR_FONTS, Zen Kaku Gothic Antique, "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif',
     body: 'Zen kaku Gothic Antique, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"',
     code: 'Source Code Pro,-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"',
   },
@@ -46,7 +46,7 @@ export const vars = createGlobalTheme(":root", {
     standard: px(740),
     large: px(960),
     xlarge: px(1120),
-    xxlarge: px(1350),
+    xxlarge: px(1180),
   },
   contentHeight: {
     fullVh: "100vh",

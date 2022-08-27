@@ -15,13 +15,12 @@ type ContentBlockProps = {
 const ContentBlock = ({ h3text, body, src, alt }: ContentBlockProps) => {
   return (
     <Box
+      component="section"
       maxWidth="xlarge"
       marginX="auto"
       padding={{ mobile: "medium", tablet: "xlarge", desktop: "medium" }}
     >
-      <H3 align="left" className={bStyles.borderBottom}>
-        {h3text}
-      </H3>
+      <H3 align="left">{h3text}</H3>
       <Box
         component={"div"}
         display={"flex"}
@@ -30,18 +29,25 @@ const ContentBlock = ({ h3text, body, src, alt }: ContentBlockProps) => {
           tablet: "row",
           desktop: "row",
         }}
-        gap="xlarge"
+        gap={{ mobile: "medium", desktop: "xlarge" }}
         flexWrap="wrap"
+        paddingX="medium"
       >
         <Box
           display="flex"
           flexDirection="column"
-          justifyContent="center"
+          justifyContent={{
+            mobile: "flex-start",
+            tablet: "center",
+            desktop: "center",
+          }}
           gap="medium"
           className={styles.flexDeconstructed}
         >
           <Paragraph>{body}</Paragraph>
-          <Button>詳しく見る</Button>
+          <Button>
+            <Paragraph component="span">詳しく見る</Paragraph>{" "}
+          </Button>
         </Box>
         <Box textAlign="center" className={styles.flexDeconstructed}>
           <Image

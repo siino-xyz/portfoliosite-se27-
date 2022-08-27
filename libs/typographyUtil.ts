@@ -8,6 +8,7 @@ const colorMap = {
   code: { lightMode: "white" },
   link: { lightMode: "gray800", darkMode: "gray100" },
   secondary: { lightMode: "gray600", darkMode: "gray400" },
+  reverse: { lightMode: "gray100", darkMode: "gray800" },
 } as const;
 
 interface TextStyleProps {

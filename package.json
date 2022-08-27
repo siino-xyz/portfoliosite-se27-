@@ -12,6 +12,8 @@
   "dependencies": {
     "@capsizecss/metrics": "^0.3.0",
     "@capsizecss/vanilla-extract": "^1.0.0",
+    "@next/bundle-analyzer": "^12.2.5",
+    "@react-three/fiber": "^8.6.0",
     "@vanilla-extract/css": "^1.7.2",
     "@vanilla-extract/dynamic": "^2.0.2",
     "@vanilla-extract/next-plugin": "^2.0.2",
@@ -22,9 +24,11 @@
     "dayjs": "^1.11.5",
     "microcms-js-sdk": "^2.2.1",
     "next": "12.2.5",
+    "next-compose-plugins": "^2.2.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "react-hook-form": "^7.34.2"
+    "react-hook-form": "^7.34.2",
+    "three": "^0.143.0"
   },
   "devDependencies": {
     "@types/node": "18.7.6",
@@ -34,6 +38,7 @@
     "eslint": "8.22.0",
     "eslint-config-next": "12.2.5",
     "eslint-config-prettier": "^8.5.0",
+    "next-transpile-modules": "^9.0.0",
     "prettier": "^2.7.1",
     "tailwindcss": "^3.1.8",
     "typescript": "4.7.4"

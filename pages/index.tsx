@@ -3,10 +3,16 @@ import { ColorModeProvider } from "components/colorModeToggle/ColorModeToggle";
 import ContentBlock from "components/contentBlock/contentBlock";
 import Header from "components/header/header";
 import { H2 } from "components/typography";
-import type { NextPage } from "next";
+import { getContents, limitForToppage } from "libs/blog";
+import type { GetStaticPathsContext, GetStaticProps, NextPage } from "next";
 import * as styles from "styles/tempStyles.css";
+import { Post } from "types";
 
-const Home: NextPage = () => {
+type HomePageProps = {
+  posts: Post[];
+};
+
+const Home: NextPage<HomePageProps> = ({ posts }) => {
   return (
     <ColorModeProvider>
       <Header />
@@ -36,6 +42,14 @@ const Home: NextPage = () => {
         <Box component="section" paddingX="medium">
           <Box component="div" className={styles.h2styles}>
             <H2 color="reverse">ブログ</H2>
+            <Box>
+              <ul></ul>
+              {posts.map((post) => (
+                <li key={post.id}>
+                  <p>{post.title}</p>
+                </li>
+              ))}
+            </Box>
           </Box>
         </Box>
       </Box>
@@ -44,3 +58,15 @@ const Home: NextPage = () => {
 };
 
 export default Home;
+
+export const getStaticProps: GetStaticProps = async (
+  context: GetStaticPathsContext
+) => {
+  // const page: any = context.params
+  const { posts } = await getContents(limitForToppage);
+  return {
+    props: {
+      posts,
+    },
+  };
+};

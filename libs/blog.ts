@@ -10,8 +10,10 @@ import { siteConfig } from "site.config";
 
 // const minLimit = parseInt(siteConfig.defaultMinLimit);
 export const limit = 2;
+export const limitForToppage = 6;
 
 export const getContents = async (
+  limit: number,
   postFilter?: string,
   currentPage: number = 1
 ): Promise<{

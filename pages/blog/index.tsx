@@ -10,7 +10,7 @@ import {
   GetStaticProps,
   NextPage,
 } from "next";
-import { getContents, getPosts } from "libs/blog";
+import { getContents, getPosts, limit } from "libs/blog";
 
 type BlogProps = {
   posts: Post[];
@@ -49,7 +49,7 @@ export const getStaticProps: GetStaticProps = async (
   context: GetStaticPathsContext
 ) => {
   // const page: any = context.params
-  const { posts } = await getContents();
+  const { posts } = await getContents(limit);
   return {
     props: {
       posts,

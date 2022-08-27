@@ -82,10 +82,10 @@ export const getStaticPaths: GetStaticPaths = async () => {
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   const pageNumber: any = params?.pageNumber || "1";
   const categoryId = params?.categoryId as string;
-
   const postFilter =
     categoryId !== undefined ? `category[equals]${categoryId}` : undefined;
   const { posts, pager, category, tags } = await getContents(
+    limit,
     postFilter,
     Number(pageNumber)
   );

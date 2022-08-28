@@ -2,15 +2,9 @@ import React from "react";
 import Link from "next/link";
 import dayjs from "dayjs";
 import Image from "next/image";
-// import { imageCroped } from "styles";
 import { Post } from "types";
-import {
-  GetStaticPaths,
-  GetStaticPathsContext,
-  GetStaticProps,
-  NextPage,
-} from "next";
-import { getContents, getPosts, limit } from "libs/blog";
+import { GetStaticPathsContext, GetStaticProps, NextPage } from "next";
+import { getContents, limit } from "libs/blog";
 
 type BlogProps = {
   posts: Post[];

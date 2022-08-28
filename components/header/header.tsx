@@ -35,6 +35,7 @@ const GlobalMenuContent = ({ open }: { open: boolean }) => {
     { id: 3, title: "委託開発", href: "./" },
     { id: 4, title: "ブログ", href: "./" },
     { id: 5, title: "コンタクト", href: "./" },
+    { id: 6, title: "クレジット", href: "./" },
   ];
 
   return (

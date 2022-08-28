@@ -16,6 +16,7 @@ export interface Post extends MicroCMSListContent {
   ogp_image?: MicroCMS_OGPImage;
   category?: MicroCMS_Category;
   tags?: MicroCMS_Tag;
+  tag?: MicroCMS_Tag;
 }
 
 export interface MicroCMS_Category extends MicroCMSListContent {

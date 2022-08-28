@@ -18,7 +18,9 @@ export const TypographRedipe = recipe({
   ],
   variants: {
     color: {
-      reverse: sprinkles({ color: { lightMode: "black", darkMode: "white" } }),
+      reverse: sprinkles({ color: { lightMode: "white", darkMode: "black" } }),
+      white: sprinkles({ color: "white" }),
+      black: sprinkles({ color: "black" }),
     },
     size: {
       xxxlarge: sprinkles({

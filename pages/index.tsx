@@ -13,6 +13,7 @@ import { sprinkles } from "styles";
 import Image from "next/image";
 import * as bStyles from "styles/borderUtils.css";
 import classNames from "classnames";
+import Footer from "components/footer/footer";
 
 type HomePageProps = {
   posts: Post[];
@@ -30,6 +31,7 @@ const Home: NextPage<HomePageProps> = ({ posts }) => {
             marginY="large"
             height="xxxlarge"
             family="jnr"
+            align="center"
           >
             コンセプト
           </TypoGraphy>
@@ -41,6 +43,7 @@ const Home: NextPage<HomePageProps> = ({ posts }) => {
             marginY="large"
             height="xxxlarge"
             family="jnr"
+            align="center"
           >
             サービス
           </TypoGraphy>
@@ -66,6 +69,7 @@ const Home: NextPage<HomePageProps> = ({ posts }) => {
             marginY="large"
             height="xxxlarge"
             family="jnr"
+            align="center"
           >
             ブログ
           </TypoGraphy>
@@ -89,8 +93,6 @@ const Home: NextPage<HomePageProps> = ({ posts }) => {
                     <Box component="div" className={styles.imageContainer}>
                       <Image
                         src={post.eye_catch.url}
-                        width={post.eye_catch.width}
-                        height={post.eye_catch.height}
                         layout="fill"
                         objectFit="contain"
                         alt={post.title}
@@ -108,7 +110,7 @@ const Home: NextPage<HomePageProps> = ({ posts }) => {
                       {post.category?.category_name}
                     </TypoGraphy>
                     <TypoGraphy component="span">
-                      {post.tags?.tag_name}
+                      {post.tag?.tag_name}
                     </TypoGraphy>
                     <TypoGraphy component="span">
                       {dayjs(post.publishedAt)
@@ -122,6 +124,7 @@ const Home: NextPage<HomePageProps> = ({ posts }) => {
           </Box>
         </Box>
       </Box>
+      <Footer />
     </ColorModeProvider>
   );
 };

@@ -81,7 +81,7 @@ export const vars = createGlobalTheme(":root", {
     large: "30px",
     xlarge: "38px",
     xxlarge: "46px",
-    xxxlarge: "52px",
+    xxxlarge: "54px",
   },
   leading: {
     xsmall: "1.25rem",
@@ -109,5 +109,10 @@ export const vars = createGlobalTheme(":root", {
       large: px(7 * grid),
       full: "9999px",
     },
+  },
+  gridTempCol: {
+    col1: "1fr",
+    col2: "1fr 1fr",
+    col3: "1fr 1fr 1fr",
   },
 });

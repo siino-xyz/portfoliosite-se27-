@@ -1,6 +1,5 @@
 import { createElement, AllHTMLAttributes, ElementType } from "react";
 import { sprinkles, Sprinkles } from "styles";
-import * as resetStyles from "styles";
 import classNames from "classnames";
 
 export interface BoxProps
@@ -65,11 +64,10 @@ export const Box = ({
   overflow,
   fontWeight,
   gap,
+  fontSize,
   ...restProps
 }: BoxProps) => {
   const atomClasses = classNames(
-    resetStyles.base,
-    resetStyles.element[component as keyof typeof resetStyles.element],
     sprinkles({
       padding,
       paddingX,
@@ -113,6 +111,7 @@ export const Box = ({
       overflow,
       fontWeight,
       gap,
+      fontSize,
     }),
     className
   );

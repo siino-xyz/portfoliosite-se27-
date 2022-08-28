@@ -1,18 +1,17 @@
 import { Box } from "components/box/Box";
 import Button from "components/button/button";
-import { H3, Paragraph } from "components/typography";
+import TypoGraphy from "components/typography/typography";
 import Image from "next/image";
-import * as bStyles from "styles/borderUtils.css";
 import * as styles from "./contentBlock.css";
 
 type ContentBlockProps = {
-  h3text: string;
+  sctiontitle: string;
   body: string;
   src: string;
   alt: string;
 };
 
-const ContentBlock = ({ h3text, body, src, alt }: ContentBlockProps) => {
+const ContentBlock = ({ sctiontitle, body, src, alt }: ContentBlockProps) => {
   return (
     <Box
       component="section"
@@ -20,7 +19,9 @@ const ContentBlock = ({ h3text, body, src, alt }: ContentBlockProps) => {
       marginX="auto"
       padding={{ mobile: "medium", tablet: "xlarge", desktop: "medium" }}
     >
-      <H3 align="left">{h3text}</H3>
+      <TypoGraphy component={"h3"} size="large" family={"jnr"}>
+        {sctiontitle}
+      </TypoGraphy>
       <Box
         component={"div"}
         display={"flex"}
@@ -44,9 +45,13 @@ const ContentBlock = ({ h3text, body, src, alt }: ContentBlockProps) => {
           gap="medium"
           className={styles.flexDeconstructed}
         >
-          <Paragraph>{body}</Paragraph>
+          <TypoGraphy component={"p"} size="medium">
+            {body}
+          </TypoGraphy>
           <Button>
-            <Paragraph component="span">詳しく見る</Paragraph>{" "}
+            <TypoGraphy component="span" size="medium">
+              詳しく見る
+            </TypoGraphy>
           </Button>
         </Box>
         <Box textAlign="center" className={styles.flexDeconstructed}>

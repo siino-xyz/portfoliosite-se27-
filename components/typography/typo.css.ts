@@ -1,0 +1,62 @@
+import { recipe, RecipeVariants } from "@vanilla-extract/recipes";
+import { fontFace } from "@vanilla-extract/css";
+import { sprinkles } from "styles";
+
+export const JNR_FONTS = fontFace({
+  fontDisplay: "swap",
+  src: "url(/fonts/JNRfont_n.ttf)",
+});
+
+export const TypographRedipe = recipe({
+  base: [
+    sprinkles({
+      color: { lightMode: "gray700", darkMode: "white" },
+      fontSize: "xxsmall",
+      fontWeight: "regular",
+      fontFamily: "body",
+    }),
+  ],
+  variants: {
+    color: {
+      reverse: sprinkles({ color: { lightMode: "black", darkMode: "white" } }),
+    },
+    size: {
+      xxxlarge: sprinkles({
+        fontSize: { mobile: "xlarge", tablet: "xxlarge", desktop: "xxxlarge" },
+      }),
+      xxlarge: sprinkles({
+        fontSize: { mobile: "large", tablet: "xlarge", desktop: "xxlarge" },
+      }),
+      xlarge: sprinkles({
+        fontSize: { mobile: "xxxmedium", tablet: "large", desktop: "large" },
+      }),
+      large: sprinkles({
+        fontSize: {
+          mobile: "xxmedium",
+          tablet: "xxxmedium",
+          desktop: "xxxmedium",
+        },
+      }),
+      medium: sprinkles({
+        fontSize: { mobile: "medium", tablet: "small", desktop: "small" },
+      }),
+      small: sprinkles({
+        fontSize: { mobile: "small", tablet: "small", desktop: "small" },
+      }),
+      xsmall: sprinkles({
+        fontSize: { mobile: "xsmall", tablet: "xsmall", desktop: "xsmall" },
+      }),
+      xxsmall: sprinkles({
+        fontSize: { mobile: "xxsmall", tablet: "xxsmall", desktop: "xxsmall" },
+      }),
+    },
+    weight: {
+      strong: "bolder",
+    },
+    family: {
+      jnr: { fontFamily: `${JNR_FONTS}` },
+    },
+  },
+});
+
+export type TypographVariants = RecipeVariants<typeof TypographRedipe>;

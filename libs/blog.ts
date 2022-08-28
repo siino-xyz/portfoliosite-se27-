@@ -13,7 +13,7 @@ export const limit = 2;
 export const limitForToppage = 6;
 
 export const getContents = async (
-  limit: number,
+  limit: number = 1,
   postFilter?: string,
   currentPage: number = 1
 ): Promise<{

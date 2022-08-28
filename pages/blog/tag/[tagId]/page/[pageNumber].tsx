@@ -95,6 +95,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 
   const postFilter = tagId !== undefined ? `tag[equals]${tagId}` : undefined;
   const { posts, pager, category, tags } = await getContents(
+    limit,
     postFilter,
     Number(pageNumber)
   );

@@ -25,10 +25,11 @@ export const globalMenuContent = style([
   {
     top: 0,
     right: 0,
+    zIndex: 1,
   },
   sprinkles({
     background: { lightMode: "black", darkMode: "white" },
-    position: { mobile: "absolute", desktop: "relative" },
+    position: { mobile: "fixed", desktop: "relative" },
     display: { mobile: "none", desktop: "block" },
     height: { mobile: "fullVh", desktop: "inher" },
   }),

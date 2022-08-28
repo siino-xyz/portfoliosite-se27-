@@ -51,7 +51,8 @@ export const TypographRedipe = recipe({
       }),
     },
     weight: {
-      strong: "bolder",
+      strong: "bold",
+      s700: "700",
     },
     family: {
       jnr: { fontFamily: `${JNR_FONTS}` },

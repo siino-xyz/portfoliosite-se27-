@@ -1,25 +1,40 @@
 import { style } from "@vanilla-extract/css";
 import { sprinkles } from "./sprinkles.css";
 
-export const h2styles = style([
-  {},
-  sprinkles({
-    background: { lightMode: "gray800", darkMode: "white" },
-    display: "inline-block",
-    paddingX: "large",
-    paddingY: "small",
-    marginY: "large",
-    borderRadius: "small",
-  }),
-]);
-
 export const blogCards = style([
-  {},
+  {
+    gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))",
+    overflow: "hidden !important",
+  },
   sprinkles({
     display: "grid",
-    gridTemplateColumns: { mobile: "col1", tablet: "col2", desktop: "col3" },
-    gap: "xsmall",
+    gap: "medium",
+    marginX: { mobile: "large", tablet: "xlarge", desktop: "small" },
   }),
 ]);
 
+export const titleabbreviation = style({
+  maxWidth: "5px",
+  overflow: "hideen",
+  whiteSpace: "nowrap",
+  display: "block",
+  textOverflow: "ellipsis !important",
+});
+
 export const blogCard = style([{}, sprinkles({})]);
+
+export const imageContainer = style([
+  {
+    width: "100%",
+    maxWidth: "100%",
+    height: "200px",
+    maxHeight: "200px",
+  },
+  sprinkles({
+    position: "relative",
+    textAlign: "center",
+    marginX: "auto",
+    background: { lightMode: "black", darkMode: "black" },
+    paddingX: "xsmall",
+  }),
+]);

@@ -45,7 +45,7 @@ const ContentBlock = ({ sctiontitle, body, src, alt }: ContentBlockProps) => {
           gap="medium"
           className={styles.flexDeconstructed}
         >
-          <TypoGraphy component={"p"} size="medium">
+          <TypoGraphy component={"p"} size="small">
             {body}
           </TypoGraphy>
           <Button>

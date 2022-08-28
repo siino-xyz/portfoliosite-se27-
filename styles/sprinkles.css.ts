@@ -62,7 +62,7 @@ const responsiveProperties = defineProperties({
     listStyleType: ["none"],
     gap: space,
     width: vars.width,
-
+    textDecoration: ["none"],
     transition: {
       slow: "transform .3s ease, opacity .3s ease",
       fast: "transform .15s ease, opacity .15s ease",

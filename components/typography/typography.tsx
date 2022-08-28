@@ -18,12 +18,14 @@ type TypoStyleProps = {
 export type TypoProps = {
   component: ElementType;
   children: ReactNode;
+  className?: Parameters<typeof classNames>[0];
 } & styles.TypographVariants &
   TypoStyleProps;
 
 const TypoGraphy = ({
   component,
   children,
+  className,
   color,
   family,
   size,
@@ -51,7 +53,8 @@ const TypoGraphy = ({
           marginX: marginX,
           marginY: marginY,
           lineHeight: height,
-        })
+        }),
+        className
       )}
     >
       {children}

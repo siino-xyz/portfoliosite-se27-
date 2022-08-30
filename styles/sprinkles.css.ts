@@ -36,7 +36,7 @@ const responsiveProperties = defineProperties({
   defaultCondition: "mobile",
   responsiveArray: ["mobile", "tablet", "desktop"],
   properties: {
-    position: ["absolute", "relative", "fixed"],
+    position: ["absolute", "relative", "fixed", "sticky"],
     display: ["none", "block", "inline", "inline-block", "flex", "grid"],
     alignItems: ["flex-start", "center", "flex-end"],
     justifyContent: ["flex-start", "center", "flex-end", "space-between"],

@@ -7,24 +7,14 @@ import { Box } from "components/box/Box";
 import { sprinkles } from "styles";
 import { ColorModeToggle } from "components/colorModeToggle/ColorModeToggle";
 import Logo from "components/logo/logo";
+import TypoGraphy from "components/typography/typography";
 
-const Hamburger = ({
-  open,
-  onClick,
-}: {
-  open: boolean;
-  onClick: () => void;
-}) => {
+const OpenBtn = ({ open, onClick }: { open: boolean; onClick: () => void }) => {
   return (
-    <button
+    <Box
       className={classNames(styles.hamburger, open ? styles.isOpen : null)}
       onClick={onClick}
-    >
-      <Box
-        className={styles.hamBox}
-        background={{ lightMode: "black", darkMode: "white" }}
-      />
-    </button>
+    ></Box>
   );
 };
 
@@ -45,23 +35,25 @@ const GlobalMenuContent = ({ open }: { open: boolean }) => {
         open ? styles.menuIsShow : null
       )}
     >
-      <ul
-        className={sprinkles({
-          display: "flex",
-          flexDirection: { mobile: "column", desktop: "row" },
-          listStyleType: "none",
-          justifyContent: "space-between",
-          gap: "small",
-        })}
+      <Box
+        display="flex"
+        flexDirection={{ mobile: "column", tablet: "column", desktop: "row" }}
+        gap="xlarge"
+        paddingTop={{ mobile: "xxxlarge", desktop: "none" }}
+        justifyContent="center"
       >
         {menuItems.map((item) => (
-          <li key={item.id}>
+          <Box key={item.id}>
             <Link href={item.href}>
-              <a>{item.title}</a>
+              <a>
+                <TypoGraphy component="span" size="xsmall" weight="strong">
+                  {item.title}
+                </TypoGraphy>
+              </a>
             </Link>
-          </li>
+          </Box>
         ))}
-      </ul>
+      </Box>
     </nav>
   );
 };
@@ -71,22 +63,19 @@ const Header = () => {
   const toggleMenu = () => setMenuOpen((open) => !open);
 
   return (
-    <Box
-      position={"relative"}
-      display={{ mobile: "flex", desktop: "flex" }}
-      flexDirection={{ mobile: "row", desktop: "row-reverse" }}
-      justifyContent={"space-between"}
-      alignItems={"center"}
-      paddingX={"large"}
-      width={"full"}
-      className={classNames(styles.header, bStyles.borderBottom)}
-    >
-      <Hamburger open={menuOpen} onClick={toggleMenu} />
-      <Box display={{ mobile: "block", desktop: "flex" }} alignItems={"center"}>
+    <Box position="sticky" top={0} left={0} zIndex={1}>
+      <Box
+        position="relative"
+        alignItems="center"
+        paddingX={{ mobile: "small", tablet: "large", desktop: "xlarge" }}
+        width="full"
+        className={classNames(styles.header)}
+      >
+        <Logo />
         <GlobalMenuContent open={menuOpen} />
         <ColorModeToggle />
+        <OpenBtn open={menuOpen} onClick={toggleMenu} />
       </Box>
-      <Logo />
     </Box>
   );
 };

@@ -2,24 +2,43 @@ import { Box } from "components/box/Box";
 import Button from "components/button/button";
 import TypoGraphy from "components/typography/typography";
 import Image from "next/image";
+import Link from "next/link";
 import * as styles from "./contentBlock.css";
+import * as bStyles from "styles/borderUtils.css";
+
+import { sprinkles } from "styles";
+import classNames from "classnames";
 
 type ContentBlockProps = {
   sctiontitle: string;
   body: string;
   src: string;
   alt: string;
+  link: string;
 };
 
-const ContentBlock = ({ sctiontitle, body, src, alt }: ContentBlockProps) => {
+const ContentBlock = ({
+  sctiontitle,
+  body,
+  src,
+  alt,
+  link,
+}: ContentBlockProps) => {
   return (
     <Box
       component="section"
       maxWidth="xlarge"
       marginX="auto"
-      padding={{ mobile: "medium", tablet: "xlarge", desktop: "medium" }}
+      marginBottom="xxlarge"
+      padding={{ mobile: "medium", tablet: "medium", desktop: "medium" }}
     >
-      <TypoGraphy component={"h3"} size="large" family={"jnr"}>
+      <TypoGraphy
+        component={"h3"}
+        size="large"
+        family={"jnr"}
+        align={{ mobile: "center", desktop: "left" }}
+        paddingY={{ mobile: "large", desktop: "none" }}
+      >
         {sctiontitle}
       </TypoGraphy>
       <Box
@@ -48,10 +67,27 @@ const ContentBlock = ({ sctiontitle, body, src, alt }: ContentBlockProps) => {
           <TypoGraphy component={"p"} size="small">
             {body}
           </TypoGraphy>
-          <Button>
-            <TypoGraphy component="span" size="medium">
-              詳しく見る
-            </TypoGraphy>
+
+          <Button
+            className={classNames(
+              sprinkles({
+                textAlign: { mobile: "center" },
+                marginY: "xlarge",
+                marginX: "auto",
+                paddingY: "medium",
+                width: { mobile: "w-1/2", tablet: "w-3/5", desktop: "w-3/5" },
+              }),
+              styles.button,
+              bStyles.borderAll
+            )}
+          >
+            <Link href={link}>
+              <a>
+                <TypoGraphy component="span" size="medium" weight="s700">
+                  詳しく見る
+                </TypoGraphy>
+              </a>
+            </Link>
           </Button>
         </Box>
         <Box textAlign="center" className={styles.flexDeconstructed}>

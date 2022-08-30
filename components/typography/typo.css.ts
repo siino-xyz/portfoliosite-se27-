@@ -12,15 +12,14 @@ export const TypographRedipe = recipe({
     sprinkles({
       color: { lightMode: "gray700", darkMode: "white" },
       fontSize: "xxsmall",
-      fontWeight: "regular",
       fontFamily: "body",
     }),
   ],
   variants: {
     color: {
       reverse: sprinkles({ color: { lightMode: "white", darkMode: "black" } }),
-      white: sprinkles({ color: "white" }),
-      black: sprinkles({ color: "black" }),
+      white: sprinkles({ color: { lightMode: "white", darkMode: "white" } }),
+      black: sprinkles({ color: { lightMode: "black", darkMode: "black" } }),
     },
     size: {
       xxxlarge: sprinkles({

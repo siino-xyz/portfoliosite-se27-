@@ -8,7 +8,7 @@ export const blogCards = style([
   },
   sprinkles({
     display: "grid",
-    gap: "medium",
+    gap: "large",
     marginX: { mobile: "large", tablet: "xlarge", desktop: "small" },
   }),
 ]);

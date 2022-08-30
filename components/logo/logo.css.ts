@@ -1,12 +1,14 @@
 import { style } from "@vanilla-extract/css";
 import { sprinkles } from "styles";
 
-const logoW = 45;
-const logoH = 45;
-
-export const tempLogo = style([
-  { height: logoH, width: logoW },
+export const logo = style([
+  {
+    ":hover": {
+      opacity: "0.8",
+    },
+    cursor: "pointer",
+  },
   sprinkles({
-    background: "red",
+    transition: "fast",
   }),
 ]);

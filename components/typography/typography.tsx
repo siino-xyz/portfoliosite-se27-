@@ -12,6 +12,10 @@ type TypoStyleProps = {
   marginX?: Sprinkles["marginX"];
   marginY?: Sprinkles["marginY"];
   margin?: Sprinkles["margin"];
+  marginTop?: Sprinkles["marginTop"];
+  marginBottom?: Sprinkles["marginBottom"];
+  marginRight?: Sprinkles["marginRight"];
+  marginLeft?: Sprinkles["marginLeft"];
   height?: Sprinkles["lineHeight"];
 };
 
@@ -38,6 +42,10 @@ const TypoGraphy = ({
   margin,
   marginX,
   marginY,
+  marginTop,
+  marginBottom,
+  marginRight,
+  marginLeft,
 }: TypoProps) => {
   return (
     <Box
@@ -52,6 +60,10 @@ const TypoGraphy = ({
           margin: margin,
           marginX: marginX,
           marginY: marginY,
+          marginTop: marginTop,
+          marginBottom: marginBottom,
+          marginRight: marginRight,
+          marginLeft: marginLeft,
           lineHeight: height,
         }),
         className

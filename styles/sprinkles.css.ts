@@ -63,6 +63,7 @@ const responsiveProperties = defineProperties({
     gap: space,
     width: vars.width,
     textDecoration: ["none"],
+    listStyle: ["inside", "square", "none", "disc", "circle", "cjk-decimal"],
     transition: {
       slow: "transform .3s ease, opacity .3s ease",
       fast: "transform .15s ease, opacity .15s ease",

@@ -65,6 +65,7 @@ export const Box = ({
   fontWeight,
   gap,
   fontSize,
+  listStyle,
   ...restProps
 }: BoxProps) => {
   const atomClasses = classNames(
@@ -112,6 +113,7 @@ export const Box = ({
       fontWeight,
       gap,
       fontSize,
+      listStyle,
     }),
     className
   );

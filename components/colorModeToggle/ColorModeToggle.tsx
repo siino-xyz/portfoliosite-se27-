@@ -1,4 +1,7 @@
+import classNames from "classnames";
 import { Box } from "components/box/Box";
+import Button from "components/button/button";
+import { Ann, Kai, Mei } from "components/vectorFonts/switchFonts";
 import {
   createContext,
   ReactNode,
@@ -6,15 +9,16 @@ import {
   useEffect,
   useState,
 } from "react";
+import { darkMode } from "styles";
 import * as style from "./ColorModeToggle.css";
 
 type ColorMode = "dark" | "light";
 export const themekey = "se27-theme-prefix";
 
-interface ColorModeContextValues {
+type ColorModeContextValues = {
   colorMode: ColorMode | null;
   setColorMode: (colorMode: ColorMode) => void;
-}
+};
 
 export const ColorModeContext = createContext<ColorModeContextValues>({
   colorMode: null,
@@ -54,15 +58,28 @@ export const ColorModeToggle = () => {
   const { colorMode, setColorMode } = useColorMode();
   return (
     <Box
-      component="button"
-      display="flex"
-      alignItems="center"
-      justifyContent="center"
-      borderRadius="full"
-      cursor="pointer"
       title="Toggle colour mode"
-      className={style.root}
-      onClick={() => setColorMode(colorMode === "light" ? "dark" : "light")}
-    />
+      display="flex"
+      flexDirection="row"
+      paddingRight="small"
+      paddingTop="xsmall"
+    >
+      <Button
+        name="colorMode_light"
+        onClick={() => {
+          setColorMode("light");
+        }}
+        className={classNames(style.light, style.toggleSwitches)}
+      >
+        <Mei className={classNames(style.vectorFonts)} />
+      </Button>
+      <Button
+        name="colorMode_dark"
+        onClick={() => setColorMode("dark")}
+        className={classNames(style.dark, style.toggleSwitches)}
+      >
+        <Ann className={style.vectorFonts} />
+      </Button>
+    </Box>
   );
 };

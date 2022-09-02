@@ -4,7 +4,12 @@ import * as styles from "./logo.css";
 
 const Logo = () => {
   return (
-    <Box>
+    <Box
+      display="flex"
+      justifyContent="flex-start"
+      alignItems="center"
+      paddingLeft="small"
+    >
       <Icon className={styles.logo} />
     </Box>
   );

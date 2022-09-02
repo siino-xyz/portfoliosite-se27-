@@ -74,8 +74,8 @@ const ContentBlock = ({
                 textAlign: { mobile: "center" },
                 marginY: "xlarge",
                 marginX: "auto",
-                paddingY: "medium",
-                width: { mobile: "w-1/2", tablet: "w-3/5", desktop: "w-3/5" },
+                paddingY: "large",
+                width: "full",
               }),
               styles.button,
               bStyles.borderAll

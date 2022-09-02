@@ -1,5 +1,5 @@
-import { style } from "@vanilla-extract/css";
-import { sprinkles } from "styles";
+import { createVar, style } from "@vanilla-extract/css";
+import { sprinkles, vars } from "styles";
 //
 const headerMaxHeight = "90px";
 
@@ -18,10 +18,10 @@ export const header = style([
     maxHeight: headerMaxHeight,
     opacity: "0.85",
     backdropFilter: "blur(12px)",
-    gridTemplateColumns: "1fr 50px 50px",
+    gridTemplateColumns: "1fr 100px 0.1fr",
     "@media": {
       "screen and (min-width: 1180px)": {
-        gridTemplateColumns: "80px 1fr 50px",
+        gridTemplateColumns: "80px 1fr 0.1fr",
       },
     },
   },
@@ -45,8 +45,15 @@ export const globalMenuContent = style([
     display: { mobile: "none", desktop: "block" },
     height: { mobile: "fullVh", desktop: "inher" },
     paddingX: "large",
-    background: { lightMode: "white", darkMode: "black" },
+    // background: { lightMode: "white", darkMode: "black" },
   }),
+  {
+    "@media": {
+      "screen and (min-width: 768px)": {
+        background: vars.palette.transparent,
+      },
+    },
+  },
 ]);
 
 export const hamburger = style([
@@ -54,14 +61,30 @@ export const hamburger = style([
     zIndex: 3,
     width: fabSize,
     height: fabSize,
+
+    "::before": {
+      position: "absolute",
+      top: "50%",
+      bottom: "50%",
+      content: "",
+      zIndex: -1,
+      filter: "blur(5px)",
+      width: "10px",
+      height: "10px",
+      backgroundColor: "red",
+    },
   },
   sprinkles({
-    background: { lightMode: "black", darkMode: "white" },
-    display: { mobile: "block", desktop: "none" },
+    background: { lightMode: "transBlack", darkMode: "transWhite" },
+    display: { mobile: "flex", desktop: "none" },
+    justifyContent: "center",
+    alignItems: "center",
+    borderRadius: "full",
+    position: "relative",
   }),
 ]);
 
-export const hamBox = style({
-  width: fabSize,
-  height: fabSize,
+export const vectorFonts = style({
+  width: "30px",
+  height: "30px",
 });

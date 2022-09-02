@@ -1,30 +1,36 @@
 import Link from "next/link";
 import classNames from "classnames";
 import * as styles from "./header.css";
-import * as bStyles from "styles/borderUtils.css";
 import { useState } from "react";
 import { Box } from "components/box/Box";
-import { sprinkles } from "styles";
 import { ColorModeToggle } from "components/colorModeToggle/ColorModeToggle";
 import Logo from "components/logo/logo";
 import TypoGraphy from "components/typography/typography";
+import { Hei, Kai } from "components/vectorFonts/switchFonts";
+import Button from "components/button/button";
 
 const OpenBtn = ({ open, onClick }: { open: boolean; onClick: () => void }) => {
   return (
-    <Box
+    <Button
       className={classNames(styles.hamburger, open ? styles.isOpen : null)}
       onClick={onClick}
-    ></Box>
+    >
+      {open ? (
+        <Hei className={styles.vectorFonts} />
+      ) : (
+        <Kai className={styles.vectorFonts} />
+      )}
+    </Button>
   );
 };
 
 const GlobalMenuContent = ({ open }: { open: boolean }) => {
   const menuItems = [
     { id: 1, title: "トップ", href: "./" },
-    { id: 2, title: "Web制作/開発", href: "./" },
+    { id: 2, title: "Web制作/開発", href: "./webdev" },
     { id: 3, title: "委託開発", href: "./" },
-    { id: 4, title: "ブログ", href: "./" },
-    { id: 5, title: "コンタクト", href: "./" },
+    { id: 4, title: "ブログ", href: "./blog" },
+    { id: 5, title: "コンタクト", href: "./contact" },
     { id: 6, title: "クレジット", href: "./" },
   ];
 
@@ -67,7 +73,6 @@ const Header = () => {
       <Box
         position="relative"
         alignItems="center"
-        paddingX={{ mobile: "small", tablet: "large", desktop: "xlarge" }}
         width="full"
         className={classNames(styles.header)}
       >

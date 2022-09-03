@@ -10,7 +10,7 @@ export const borderBottom = style([
     borderBottom: `${bWidth} ${bStyle} ${bColorDefault}`,
   },
   sprinkles({
-    borderColor: { darkMode: "white" },
+    borderColor: { darkMode: "gray200" },
   }),
 ]);
 
@@ -19,7 +19,7 @@ export const borderTop = style([
     borderTop: `${bWidth} ${bStyle} ${bColorDefault}`,
   },
   sprinkles({
-    borderColor: { darkMode: "white" },
+    borderColor: { darkMode: "gray200" },
   }),
 ]);
 
@@ -28,7 +28,7 @@ export const borderRight = style([
     borderRight: `${bWidth} ${bStyle} ${bColorDefault}`,
   },
   sprinkles({
-    borderColor: { darkMode: "white" },
+    borderColor: { darkMode: "gray200" },
   }),
 ]);
 
@@ -37,7 +37,7 @@ export const borderLeft = style([
     borderLeft: `${bWidth} ${bStyle} ${bColorDefault}`,
   },
   sprinkles({
-    borderColor: { darkMode: "white" },
+    borderColor: { darkMode: "gray200" },
   }),
 ]);
 
@@ -46,6 +46,6 @@ export const borderAll = style([
     border: `${bWidth} ${bStyle} ${bColorDefault}`,
   },
   sprinkles({
-    borderColor: { darkMode: "white" },
+    borderColor: { darkMode: "gray200" },
   }),
 ]);

@@ -1,7 +1,7 @@
 import classNames from "classnames";
-import { Box } from "components/box/Box";
-import Button from "components/button/button";
-import { Ann, Kai, Mei } from "components/vectorFonts/switchFonts";
+import { Box } from "system/box/Box";
+import Button from "system/button/button";
+import { Ann, Kai, Mei } from "system/vectorFonts/switchFonts";
 import {
   createContext,
   ReactNode,

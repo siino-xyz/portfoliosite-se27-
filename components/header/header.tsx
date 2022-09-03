@@ -2,12 +2,12 @@ import Link from "next/link";
 import classNames from "classnames";
 import * as styles from "./header.css";
 import { useState } from "react";
-import { Box } from "components/box/Box";
+import { Box } from "system/box/Box";
 import { ColorModeToggle } from "components/colorModeToggle/ColorModeToggle";
 import Logo from "components/logo/logo";
-import TypoGraphy from "components/typography/typography";
-import { Hei, Kai } from "components/vectorFonts/switchFonts";
-import Button from "components/button/button";
+import TypoGraphy from "system/typography/typography";
+import { Hei, Kai } from "system/vectorFonts/switchFonts";
+import Button from "system/button/button";
 
 const OpenBtn = ({ open, onClick }: { open: boolean; onClick: () => void }) => {
   return (

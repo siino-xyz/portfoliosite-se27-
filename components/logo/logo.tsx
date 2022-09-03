@@ -1,4 +1,4 @@
-import { Box } from "components/box/Box";
+import { Box } from "system/box/Box";
 import Icon from "./se27kun.svg";
 import * as styles from "./logo.css";
 

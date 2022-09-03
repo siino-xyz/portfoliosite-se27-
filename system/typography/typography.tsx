@@ -1,6 +1,6 @@
 import classNames from "classnames";
-import { Box } from "components/box/Box";
-import { ElementType, ReactNode } from "react";
+import { Box } from "system/box/Box";
+import { ElementType, memo, ReactNode } from "react";
 import { sprinkles, Sprinkles } from "styles";
 import * as styles from "./typo.css";
 
@@ -9,6 +9,10 @@ type TypoStyleProps = {
   paddingX?: Sprinkles["paddingX"];
   paddingY?: Sprinkles["paddingY"];
   padding?: Sprinkles["padding"];
+  paddingTop?: Sprinkles["paddingTop"];
+  paddingBottom?: Sprinkles["paddingBottom"];
+  paddingLeft?: Sprinkles["paddingLeft"];
+  paddingRight?: Sprinkles["paddingRight"];
   marginX?: Sprinkles["marginX"];
   marginY?: Sprinkles["marginY"];
   margin?: Sprinkles["margin"];
@@ -39,6 +43,10 @@ const TypoGraphy = ({
   padding,
   paddingX,
   paddingY,
+  paddingBottom,
+  paddingTop,
+  paddingLeft,
+  paddingRight,
   margin,
   marginX,
   marginY,
@@ -57,6 +65,10 @@ const TypoGraphy = ({
           padding: padding,
           paddingX: paddingX,
           paddingY: paddingY,
+          paddingTop: paddingTop,
+          paddingBottom: paddingBottom,
+          paddingRight: paddingRight,
+          paddingLeft: paddingLeft,
           margin: margin,
           marginX: marginX,
           marginY: marginY,

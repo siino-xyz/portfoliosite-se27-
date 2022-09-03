@@ -14,7 +14,6 @@ export const blogCards = style([
 ]);
 
 export const titleabbreviation = style({
-  maxWidth: "5px",
   overflow: "hideen",
   whiteSpace: "nowrap",
   display: "block",
@@ -36,5 +35,12 @@ export const imageContainer = style([
     marginX: "auto",
     background: { lightMode: "black", darkMode: "black" },
     paddingX: "xsmall",
+  }),
+]);
+
+export const categoryTag = style([
+  sprinkles({
+    background: "red",
+    borderRadius: "small",
   }),
 ]);

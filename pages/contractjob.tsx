@@ -3,8 +3,8 @@ import { ColorModeProvider } from "components/colorModeToggle/ColorModeToggle";
 import Header from "components/header/header";
 import type { NextPage } from "next";
 import Footer from "components/footer/footer";
-import TypoGraphy from "components/typography/typography";
-import TextContents from "components/paragraph/paragraph";
+import TypoGraphy from "system/typography/typography";
+import TextContents from "system/typography/paragraph/paragraph";
 import List from "components/list/list";
 
 const ContractJobPage: NextPage = () => {

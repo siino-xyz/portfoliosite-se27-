@@ -1,5 +1,5 @@
-import { Box } from "components/box/Box";
-import TypoGraphy from "components/typography/typography";
+import { Box } from "system/box/Box";
+import TypoGraphy from "system/typography/typography";
 
 type TextContentsProps = {
   title?: string;

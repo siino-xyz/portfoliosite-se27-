@@ -2,20 +2,12 @@ import { Box } from "components";
 import { ColorModeProvider } from "components/colorModeToggle/ColorModeToggle";
 import ContentBlock from "components/contentBlock/contentBlock";
 import Header from "components/header/header";
-import TypoGraphy from "components/typography/typography";
-import dayjs from "dayjs";
-import Link from "next/link";
 import { getContents, limitForToppage } from "libs/blog";
 import type { GetStaticProps, NextPage } from "next";
-import * as styles from "styles/tempStyles.css";
-import { Post } from "types";
-import { sprinkles } from "styles";
-import Image from "next/image";
-import * as bStyles from "styles/borderUtils.css";
-import classNames from "classnames";
+import { MicroCMS_Category, Post } from "types";
 import Footer from "components/footer/footer";
-import SwitchDemo from "components/switch/switch";
 import BlogCard from "components/blogCard/blogCard";
+import { SectionTitle } from "system/typography/sectionTitle/sectionTitle";
 
 type HomePageProps = {
   posts: Post[];
@@ -27,16 +19,7 @@ const Home: NextPage<HomePageProps> = ({ posts }) => {
       <Header />
       <Box component="main" maxWidth="xxlarge" marginX="auto" paddingX="medium">
         <Box component="section" paddingY="xxlarge" paddingX="medium">
-          <TypoGraphy
-            component={"h2"}
-            size="xxlarge"
-            marginY="large"
-            height="xxxlarge"
-            family="jnr"
-            align="center"
-          >
-            サービス
-          </TypoGraphy>
+          <SectionTitle title="サービス" />
           <Box>
             <ContentBlock
               sctiontitle="Webサイト制作"
@@ -55,16 +38,7 @@ const Home: NextPage<HomePageProps> = ({ posts }) => {
           </Box>
         </Box>
         <Box component="section" paddingX="medium">
-          <TypoGraphy
-            component={"h2"}
-            size="xxlarge"
-            marginY="large"
-            height="xxxlarge"
-            family="jnr"
-            align="center"
-          >
-            ブログ
-          </TypoGraphy>
+          <SectionTitle title="ブログ" />
           <BlogCard posts={posts} />
         </Box>
       </Box>

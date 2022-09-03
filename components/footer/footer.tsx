@@ -6,8 +6,8 @@ const menuItems = [
   { id: 5, title: "コンタクト", href: "./" },
   { id: 6, title: "クレジット", href: "./" },
 ];
-import { Box } from "components/box/Box";
-import TypoGraphy from "components/typography/typography";
+import { Box } from "system/box/Box";
+import TypoGraphy from "system/typography/typography";
 import Link from "next/link";
 
 const Footer = () => {
@@ -15,7 +15,7 @@ const Footer = () => {
     <Box
       component="footer"
       width="full"
-      background={"gray800"}
+      background="black"
       padding="large"
       marginTop="xlarge"
     >

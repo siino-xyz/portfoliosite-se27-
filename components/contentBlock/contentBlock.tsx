@@ -5,8 +5,6 @@ import Image from "next/image";
 import Link from "next/link";
 import * as styles from "./contentBlock.css";
 import * as bStyles from "styles/borderUtils.css";
-
-import { sprinkles } from "styles";
 import classNames from "classnames";
 
 type ContentBlockProps = {

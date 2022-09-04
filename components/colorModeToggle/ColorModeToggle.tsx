@@ -62,7 +62,7 @@ export const ColorModeToggle = () => {
       display="flex"
       flexDirection="row"
       paddingRight="small"
-      paddingTop="xsmall"
+      paddingTop="none"
     >
       <Button
         name="colorMode_light"

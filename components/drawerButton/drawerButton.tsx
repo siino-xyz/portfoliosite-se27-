@@ -16,9 +16,9 @@ export const DrawerButton = ({
       onClick={onClick}
     >
       {open ? (
-        <Hei className={styles.vectorFonts} />
+        <Hei className={styles.inner} />
       ) : (
-        <Kai className={styles.vectorFonts} />
+        <Kai className={styles.inner} />
       )}
     </Button>
   );

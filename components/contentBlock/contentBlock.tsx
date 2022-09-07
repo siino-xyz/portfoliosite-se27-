@@ -73,7 +73,7 @@ const ContentBlock = ({
                 <TypoGraphy
                   component="span"
                   size="medium"
-                  weight="s700"
+                  weight="strong"
                   color="black"
                 >
                   詳しく見る

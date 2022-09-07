@@ -114,7 +114,7 @@ const unresponsiveProperties = defineProperties({
     bottom: [0],
     left: [0],
     right: [0],
-    zIndex: [-1, 0, 1],
+    zIndex: [-1, 0, 1, 2],
     borderRadius: vars.border.radius,
     borderStyle: ["solid", "dashed", "none"],
     borderWidth: vars.spacing,

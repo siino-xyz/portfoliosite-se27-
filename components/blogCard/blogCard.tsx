@@ -4,9 +4,8 @@ import TypoGraphy from "system/typography/typography";
 import Image from "next/image";
 import Link from "next/link";
 import { sprinkles } from "styles";
-import { MicroCMS_Category, Post } from "types";
+import { Post } from "types";
 import * as styles from "./blodCard.css";
-import * as bStyles from "styles/borderUtils.css";
 import dayjs from "dayjs";
 
 type BlogCardProps = {
@@ -28,9 +27,9 @@ const BlogCard = ({ posts }: BlogCardProps) => {
               paddingTop="small"
               paddingRight="small"
               paddingLeft="small"
-              paddingBottom="large"
+              paddingBottom="small"
               borderRadius="small"
-              background={{ lightMode: "gray200", darkMode: "gray800" }}
+              background={{ lightMode: "gray500", darkMode: "gray500" }}
             >
               <Box
                 component="div"
@@ -44,7 +43,13 @@ const BlogCard = ({ posts }: BlogCardProps) => {
                   alt={post.title}
                 />
               </Box>
-              <Box marginRight="small" paddingTop="medium">
+              <Box
+                marginRight="small"
+                paddingTop="none"
+                display="flex"
+                flexDirection="column"
+                gap="none"
+              >
                 <Box
                   className={sprinkles({
                     display: "flex",
@@ -57,9 +62,13 @@ const BlogCard = ({ posts }: BlogCardProps) => {
                     height="small"
                     component="span"
                     className={sprinkles({
-                      background: "limeA200",
+                      background: "black",
+                      borderRadius: "small",
                     })}
-                    paddingX="small"
+                    size="xxsmall"
+                    weight="strong"
+                    paddingX="xsmall"
+                    color="lime"
                   >
                     {post.category?.category_name}
                   </TypoGraphy>
@@ -77,7 +86,7 @@ const BlogCard = ({ posts }: BlogCardProps) => {
                           fontSize: "xsmall",
                           paddingTop: "xsmall",
                           paddingRight: "xsmall",
-                          color: { lightMode: "gray700", darkMode: "gray200" },
+                          color: "gray300",
                         })
                       )}
                     >
@@ -87,27 +96,34 @@ const BlogCard = ({ posts }: BlogCardProps) => {
                       height="small"
                       component="span"
                       className={sprinkles({
-                        color: { lightMode: "gray700", darkMode: "gray200" },
+                        color: "gray300",
                       })}
                     >
                       {post.tag?.tag_name}
                     </TypoGraphy>
                   </Box>
                 </Box>
+
+                <TypoGraphy
+                  component="h3"
+                  size="xsmall"
+                  weight="strong"
+                  color="white"
+                  paddingBottom="small"
+                  align="left"
+                  className={styles.titleabbreviation}
+                >
+                  {post.title}
+                </TypoGraphy>
                 <TypoGraphy
                   component="span"
                   height="xsmall"
                   paddingLeft="xsmall"
+                  color="gray300"
+                  align="right"
+                  className={styles.negmer}
                 >
                   {dayjs(post.publishedAt).locale("ja").format("YYYY/MM/DD")}
-                </TypoGraphy>
-                <TypoGraphy
-                  component="h3"
-                  size="small"
-                  weight="strong"
-                  className={styles.titleabbreviation}
-                >
-                  {post.title}
                 </TypoGraphy>
               </Box>
             </Box>

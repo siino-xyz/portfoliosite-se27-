@@ -3,22 +3,29 @@ import { sprinkles } from "styles";
 
 export const blogCards = style([
   {
-    gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))",
+    gridTemplateColumns: "repeat(auto-fit, minmax(288px, 292px))",
     overflow: "hidden !important",
   },
   sprinkles({
     display: "grid",
-    gap: "large",
-    marginX: { mobile: "large", tablet: "xlarge", desktop: "small" },
+    gap: { mobile: "large", tablet: "large", desktop: "medium" },
+    marginX: { mobile: "auto", tablet: "auto", desktop: "small" },
+    justifyContent: "center",
   }),
 ]);
 
-export const titleabbreviation = style({
-  overflow: "hideen",
-  whiteSpace: "nowrap",
-  display: "block",
-  textOverflow: "ellipsis !important",
-});
+export const titleabbreviation = style([
+  {
+    overflow: "hideen",
+    whiteSpace: "nowrap",
+    display: "block",
+    textOverflow: "ellipsis !important",
+    flex: 1,
+  },
+  sprinkles({
+    maxWidth: "xsmall",
+  }),
+]);
 
 export const blogCard = style([{}, sprinkles({})]);
 
@@ -44,3 +51,5 @@ export const categoryTag = style([
     borderRadius: "small",
   }),
 ]);
+
+export const negmer = sprinkles({});

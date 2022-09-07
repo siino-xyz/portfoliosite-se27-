@@ -8,6 +8,8 @@ import { MicroCMS_Category, Post } from "types";
 import Footer from "components/footer/footer";
 import BlogCard from "components/blogCard/blogCard";
 import { SectionTitle } from "system/typography/sectionTitle/sectionTitle";
+import { Section } from "system/section/section";
+import Main from "system/main/main";
 
 type HomePageProps = {
   posts: Post[];
@@ -17,9 +19,10 @@ const Home: NextPage<HomePageProps> = ({ posts }) => {
   return (
     <ColorModeProvider>
       <Header />
-      <Box component="main" maxWidth="xxlarge" marginX="auto" paddingX="medium">
-        <Box component="section" paddingY="xxlarge" paddingX="medium">
-          <SectionTitle title="サービス" />
+
+      <Main>
+        <Section>
+          <SectionTitle title="Service" />
           <Box>
             <ContentBlock
               sctiontitle="Webサイト制作"
@@ -36,12 +39,12 @@ const Home: NextPage<HomePageProps> = ({ posts }) => {
               link="/"
             />
           </Box>
-        </Box>
-        <Box component="section" paddingX="medium">
-          <SectionTitle title="ブログ" />
+        </Section>
+        <Section>
+          <SectionTitle title="Blog" />
           <BlogCard posts={posts} />
-        </Box>
-      </Box>
+        </Section>
+      </Main>
       <Footer />
     </ColorModeProvider>
   );

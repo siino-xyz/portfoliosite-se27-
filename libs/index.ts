@@ -1,3 +1,3 @@
 export * from "./client";
 export * from "./getForm";
-export * from "./globalmenuItems";
+export * from "./menuLists";

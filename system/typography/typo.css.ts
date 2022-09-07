@@ -23,6 +23,10 @@ export const TypographRedipe = recipe({
       white: sprinkles({ color: { lightMode: "white", darkMode: "white" } }),
       black: sprinkles({ color: { lightMode: "black", darkMode: "black" } }),
       gray: sprinkles({ color: { lightMode: "gray700", darkMode: "gray200" } }),
+      lime: sprinkles({
+        color: "indigoA400",
+      }),
+      gray300: sprinkles({ color: "gray300" }),
     },
     size: {
       xxxlarge: sprinkles({
@@ -55,8 +59,12 @@ export const TypographRedipe = recipe({
       }),
     },
     weight: {
-      strong: "bold",
-      s700: "700",
+      strong: sprinkles({
+        fontWeight: "strong",
+      }),
+      regular: sprinkles({
+        fontWeight: "regular",
+      }),
     },
     family: {
       jnr: { fontFamily: `${JNR_FONTS}` },

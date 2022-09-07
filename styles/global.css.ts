@@ -9,6 +9,9 @@ globalStyle("html, body", {
   padding: 0,
   maxWidth: `${maxWidth}`,
 });
+globalStyle("body", {
+  minHeight: "100vh",
+});
 
 globalStyle(`.${darkMode}`, {
   background: vars.palette.black,

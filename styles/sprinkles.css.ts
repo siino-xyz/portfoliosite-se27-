@@ -36,9 +36,9 @@ const responsiveProperties = defineProperties({
   defaultCondition: "mobile",
   responsiveArray: ["mobile", "tablet", "desktop"],
   properties: {
-    position: ["absolute", "relative", "fixed"],
+    position: ["absolute", "relative", "fixed", "sticky"],
     display: ["none", "block", "inline", "inline-block", "flex", "grid"],
-    alignItems: ["flex-start", "center", "flex-end"],
+    alignItems: ["flex-start", "center", "flex-end", "baseline"],
     justifyContent: ["flex-start", "center", "flex-end", "space-between"],
     flexDirection: ["row", "row-reverse", "column", "column-reverse"],
     flexShrink: [0, 1, 1.5, 2, 2, 5, 3, 3.5, 4],
@@ -62,7 +62,8 @@ const responsiveProperties = defineProperties({
     listStyleType: ["none"],
     gap: space,
     width: vars.width,
-
+    textDecoration: ["none"],
+    listStyle: ["inside", "square", "none", "disc", "circle", "cjk-decimal"],
     transition: {
       slow: "transform .3s ease, opacity .3s ease",
       fast: "transform .15s ease, opacity .15s ease",
@@ -113,7 +114,7 @@ const unresponsiveProperties = defineProperties({
     bottom: [0],
     left: [0],
     right: [0],
-    zIndex: [-1, 0, 1],
+    zIndex: [-1, 0, 1, 2],
     borderRadius: vars.border.radius,
     borderStyle: ["solid", "dashed", "none"],
     borderWidth: vars.spacing,

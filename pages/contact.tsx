@@ -1,4 +1,4 @@
-import Button from "components/button/button";
+import Button from "system/button/button";
 import { GetForm } from "libs/getForm";
 
 const ContactPage = () => {

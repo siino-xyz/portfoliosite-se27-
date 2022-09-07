@@ -10,15 +10,23 @@ export const JNR_FONTS = fontFace({
 export const TypographRedipe = recipe({
   base: [
     sprinkles({
-      color: { lightMode: "gray700", darkMode: "white" },
       fontSize: "xxsmall",
-      fontWeight: "regular",
       fontFamily: "body",
     }),
   ],
   variants: {
     color: {
-      reverse: sprinkles({ color: { lightMode: "black", darkMode: "white" } }),
+      neutral: sprinkles({
+        color: { lightMode: "gray700", darkMode: "white" },
+      }),
+      reverse: sprinkles({ color: { lightMode: "white", darkMode: "black" } }),
+      white: sprinkles({ color: { lightMode: "white", darkMode: "white" } }),
+      black: sprinkles({ color: { lightMode: "black", darkMode: "black" } }),
+      gray: sprinkles({ color: { lightMode: "gray700", darkMode: "gray200" } }),
+      lime: sprinkles({
+        color: "indigoA400",
+      }),
+      gray300: sprinkles({ color: "gray300" }),
     },
     size: {
       xxxlarge: sprinkles({
@@ -51,7 +59,12 @@ export const TypographRedipe = recipe({
       }),
     },
     weight: {
-      strong: "bolder",
+      strong: sprinkles({
+        fontWeight: "strong",
+      }),
+      regular: sprinkles({
+        fontWeight: "regular",
+      }),
     },
     family: {
       jnr: { fontFamily: `${JNR_FONTS}` },

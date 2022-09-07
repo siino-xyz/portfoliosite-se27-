@@ -1,14 +1,13 @@
-import Link from "next/link";
 import classNames from "classnames";
 import * as styles from "./header.css";
-import * as bStyles from "styles/borderUtils.css";
-import { useState } from "react";
-import { Box } from "components/box/Box";
-import { sprinkles } from "styles";
+import { Box } from "system/box/Box";
 import { ColorModeToggle } from "components/colorModeToggle/ColorModeToggle";
 import Logo from "components/logo/logo";
+import { useState } from "react";
+import { Hei, Kai } from "system";
+import Button from "system/button/button";
 
-const Hamburger = ({
+export const DrawerButton = ({
   open,
   onClick,
 }: {
@@ -16,25 +15,34 @@ const Hamburger = ({
   onClick: () => void;
 }) => {
   return (
-    <button
-      className={classNames(styles.hamburger, open ? styles.isOpen : null)}
+    <Button
+      className={classNames(styles.drawer, open ? styles.isOpen : null)}
       onClick={onClick}
     >
-      <Box
-        className={styles.hamBox}
-        background={{ lightMode: "black", darkMode: "white" }}
-      />
-    </button>
+      {open ? (
+        <Hei className={styles.inner} />
+      ) : (
+        <Kai className={styles.inner} />
+      )}
+    </Button>
   );
 };
 
-const GlobalMenuContent = ({ open }: { open: boolean }) => {
+import Link from "next/link";
+import TypoGraphy from "system/typography/typography";
+
+type MenuListProps = {
+  open: boolean;
+};
+
+export const MenuList = ({ open }: MenuListProps) => {
   const menuItems = [
     { id: 1, title: "トップ", href: "./" },
     { id: 2, title: "Web制作/開発", href: "./" },
     { id: 3, title: "委託開発", href: "./" },
     { id: 4, title: "ブログ", href: "./" },
     { id: 5, title: "コンタクト", href: "./" },
+    { id: 6, title: "クレジット", href: "./" },
   ];
 
   return (
@@ -44,48 +52,55 @@ const GlobalMenuContent = ({ open }: { open: boolean }) => {
         open ? styles.menuIsShow : null
       )}
     >
-      <ul
-        className={sprinkles({
-          display: "flex",
-          flexDirection: { mobile: "column", desktop: "row" },
-          listStyleType: "none",
-          justifyContent: "space-between",
-          gap: "small",
-        })}
+      <Box
+        display="flex"
+        flexDirection={{ mobile: "column", tablet: "column", desktop: "row" }}
+        gap="xlarge"
+        paddingTop={{ mobile: "xxxlarge", desktop: "none" }}
+        justifyContent="center"
+        zIndex={2}
       >
         {menuItems.map((item) => (
-          <li key={item.id}>
+          <Box key={item.id}>
             <Link href={item.href}>
-              <a>{item.title}</a>
+              <a>
+                <TypoGraphy
+                  component="span"
+                  size="xsmall"
+                  weight="strong"
+                  color="black"
+                  className={styles.menuitem}
+                >
+                  {item.title}
+                </TypoGraphy>
+              </a>
             </Link>
-          </li>
+          </Box>
         ))}
-      </ul>
+      </Box>
     </nav>
   );
 };
 
 const Header = () => {
-  const [menuOpen, setMenuOpen] = useState(false);
-  const toggleMenu = () => setMenuOpen((open) => !open);
+  const [isShow, setIsShow] = useState(false);
+  const toggleAction = () => setIsShow((open) => !open);
+  const closeAction = () => setIsShow(false);
 
   return (
-    <Box
-      position={"relative"}
-      display={{ mobile: "flex", desktop: "flex" }}
-      flexDirection={{ mobile: "row", desktop: "row-reverse" }}
-      justifyContent={"space-between"}
-      alignItems={"center"}
-      paddingX={"large"}
-      width={"full"}
-      className={classNames(styles.header, bStyles.borderBottom)}
-    >
-      <Hamburger open={menuOpen} onClick={toggleMenu} />
-      <Box display={{ mobile: "block", desktop: "flex" }} alignItems={"center"}>
-        <GlobalMenuContent open={menuOpen} />
+    <Box position="sticky" top={0} left={0} zIndex={1}>
+      <Box
+        position="relative"
+        alignItems="center"
+        width="full"
+        className={classNames(styles.header)}
+      >
+        <Logo />
+        <MenuList open={isShow} />
         <ColorModeToggle />
+        <DrawerButton open={isShow} onClick={toggleAction} />
       </Box>
-      <Logo />
+      {/* {isShow && <div className={styles.mask} onClick={closeAction}></div>} */}
     </Box>
   );
 };

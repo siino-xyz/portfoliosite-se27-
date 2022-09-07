@@ -7,6 +7,10 @@ const px = (value: string | number) => `${value}px`;
 const tailwindPalette = {
   white: "#F1F5F9",
   black: "#1B1919",
+  amber: "#ffc107",
+  transparent: "rgba(0,0,0,0)",
+  transBlack: "rgba(27,27,25,0.7)",
+  transWhite: "rgba(241,245,249,0.7)",
   red: colors.red["500"],
   gray50: colors.gray["50"],
   gray100: colors.gray["100"],
@@ -18,6 +22,21 @@ const tailwindPalette = {
   gray700: colors.gray["700"],
   gray800: colors.gray["800"],
   gray900: colors.gray["900"],
+
+  dpA100: "#b388ff",
+  dpA200: "#7c4dff",
+  dpA400: "#651fff",
+  dpA700: "#6200ea",
+
+  limeA100: "#f4ff81",
+  limeA200: "#eeff41",
+  limeA400: "#c6ff00",
+  limeA700: "#aeea00",
+
+  indigoA100: "#8c9eff",
+  indigoA200: "#536dfe",
+  indigoA400: "#3d5afe",
+  indigoA700: "#304ffe",
 };
 
 //util variavles
@@ -68,6 +87,7 @@ export const vars = createGlobalTheme(":root", {
     "w-3/5": "60%",
     "w-1/2": "50%",
     "w-1/4": "25%",
+    "w-1/3": "33.333%",
     "w-screen": "100vw",
   },
   fontSize: {
@@ -104,7 +124,7 @@ export const vars = createGlobalTheme(":root", {
     },
 
     radius: {
-      small: px(2 * grid),
+      small: px(1 * grid),
       medium: px(4 * grid),
       large: px(7 * grid),
       full: "9999px",

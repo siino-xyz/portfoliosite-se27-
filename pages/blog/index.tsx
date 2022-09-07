@@ -1,54 +1,33 @@
-import React from "react";
-import Link from "next/link";
-import dayjs from "dayjs";
-import Image from "next/image";
-// import { imageCroped } from "styles";
+import React, { ReactElement } from "react";
 import { Post } from "types";
-import {
-  GetStaticPaths,
-  GetStaticPathsContext,
-  GetStaticProps,
-  NextPage,
-} from "next";
-import { getContents, getPosts, limit } from "libs/blog";
+import { GetStaticProps } from "next";
+import { getContents, limit } from "libs/blog";
+import BlogCard from "components/blogCard/blogCard";
+import BlogLayout from "layout/layout";
+import { NextPageWithLayout } from "pages/_app";
+import { Box, SectionTitle } from "system";
+import Main from "system/main/main";
 
 type BlogProps = {
   posts: Post[];
 };
 
-const blogIndexPage: NextPage<BlogProps> = ({ posts }) => {
+const blogIndexPage: NextPageWithLayout<BlogProps> = ({ posts }) => {
   return (
-    <div>
-      <h1>ブログ一覧ページ</h1>
-      <ul>
-        {posts.map((post) => (
-          <li key={post.id}>
-            <Image
-              layout="fill"
-              objectFit="contain"
-              alt="eye_catch"
-              src={post.eye_catch.url}
-            />
-
-            <Link href={`/blog/posts/${post.id}`}>
-              <a>{post.title}</a>
-            </Link>
-            <p>{post.category?.category_name}</p>
-            <p>{post.tags?.tag_name}</p>
-            <p>{dayjs(post.createdAt).locale("ja").format("YYYY/MM/DD")}</p>
-          </li>
-        ))}
-      </ul>
-    </div>
+    <Main>
+      <SectionTitle title="All Posts" />
+      <BlogCard posts={posts} />
+    </Main>
   );
 };
 
 export default blogIndexPage;
 
-export const getStaticProps: GetStaticProps = async (
-  context: GetStaticPathsContext
-) => {
-  // const page: any = context.params
+blogIndexPage.getLayout = function getLayout(blogIndexPage: ReactElement) {
+  return <BlogLayout>{blogIndexPage}</BlogLayout>;
+};
+
+export const getStaticProps: GetStaticProps = async () => {
   const { posts } = await getContents(limit);
   return {
     props: {

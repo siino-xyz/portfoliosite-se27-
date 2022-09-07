@@ -1,35 +1,58 @@
 import { createVar, style } from "@vanilla-extract/css";
-import { darkMode } from "styles";
+import { darkMode, sprinkles } from "styles";
 import { vars } from "styles";
 
-const toggleBrightness = createVar();
-const toggleContent = createVar();
-const focusRingColor = createVar();
+const switchColor = createVar();
+const vectorFill = createVar();
 
-export const root = style({
-  outline: "none",
-  fontSize: 24,
-  height: 42,
-  width: 42,
+export const toggleSwitches = style([
+  sprinkles({
+    paddingX: "small",
+    paddingY: "none",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+  }),
+]);
+
+export const light = style({
   vars: {
-    [toggleBrightness]: "0",
-    [toggleContent]: '"☀️"',
-    [focusRingColor]: vars.palette.red,
-  },
-  ":focus-visible": {
-    boxShadow: `0px 0px 0px 3px ${focusRingColor}`,
-  },
-  "::before": {
-    content: toggleContent,
-    filter: `contrast(0) brightness(${toggleBrightness})`,
+    [switchColor]: vars.palette.red,
   },
   selectors: {
     [`.${darkMode} &`]: {
       vars: {
-        [toggleBrightness]: "10",
-        [toggleContent]: '"🌙"',
-        [focusRingColor]: vars.palette.gray900,
+        [switchColor]: vars.palette.white,
       },
     },
   },
+  color: [switchColor],
+});
+
+export const dark = style({
+  vars: {
+    [switchColor]: vars.palette.black,
+  },
+  selectors: {
+    [`.${darkMode} &`]: {
+      vars: {
+        [switchColor]: vars.palette.red,
+      },
+    },
+  },
+  fill: [switchColor],
+});
+
+export const vectorFonts = style({
+  width: "30px",
+  height: "30px",
+  [vectorFill]: vars.palette.black,
+  selectors: {
+    [`.${darkMode} &`]: {
+      vars: {
+        [vectorFill]: vars.palette.white,
+      },
+    },
+  },
+  fill: [vectorFill],
 });
